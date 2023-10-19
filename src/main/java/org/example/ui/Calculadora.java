@@ -34,7 +34,6 @@ public class Calculadora extends JFrame {
 
 
     private double valor1 = 0.0;
-    private double valor2 = 0.0;
     private char operador;
     private double resultado = 0.0;
 
@@ -112,7 +111,6 @@ public class Calculadora extends JFrame {
         setBotonOperacion(btnRestar);
         setBotonOperacion(btnMultiplicar);
         setBotonOperacion(btnDividir);
-        setBotonOperacion(btnPotencia);
         setBotonOperacion(btnPotencia);
         btnRaiz.addActionListener(e -> {
             String txtResultadoActual = txtResultado.getText().trim(); // Elimina los espacios en blanco
