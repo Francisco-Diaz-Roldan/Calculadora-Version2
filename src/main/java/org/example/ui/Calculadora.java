@@ -1,6 +1,8 @@
 package org.example.ui;
 
 import javax.swing.*;
+import java.util.Objects;
+
 import static java.lang.Math.sqrt;
 
 public class Calculadora extends JFrame {
@@ -32,6 +34,7 @@ public class Calculadora extends JFrame {
 
 
     private double valor1 = 0.0;
+    private double valor2 = 0.0;
     private char operador;
     private double resultado = 0.0;
 
@@ -129,11 +132,14 @@ public class Calculadora extends JFrame {
 
         // Para cambiar de positivo a negativo un valor y viceversa
         btnMasMenos.addActionListener(e -> {
-            if (!txtResultado.getText().isEmpty()) {
+            if (!txtResultado.getText().isEmpty() && !Objects.equals(txtResultado.getText(), "0")){
                 double num = Double.parseDouble(txtResultado.getText());
                 num = num * -1;
-                txtResultado.setText(String.valueOf(num));
-            }
+                if (num == (int) num) {
+                    txtResultado.setText(String.valueOf((int) num));
+                } else {
+                    txtResultado.setText(String.valueOf(num));
+                }            }
         });
 
         btnIgual.addActionListener(e -> {
@@ -207,7 +213,6 @@ public class Calculadora extends JFrame {
     private void setBotonOperacion(JButton boton) {
         boton.addActionListener(e -> {
             String btnTexto = boton.getText();
-
             getOperador(btnTexto);
         });
     }
@@ -242,6 +247,8 @@ public class Calculadora extends JFrame {
 
     // Hago un método para que el btnIgual no esté tan cargado
     private void realizarOperacion(double valor1, double valor2, char operador) {
+        double resultado= 0.0;
+
         switch (operador) {
             case '+':
                 resultado = valor1 + valor2;
@@ -266,8 +273,8 @@ public class Calculadora extends JFrame {
         }
 
         // Restablezco el "valor1" y muestro el resultado por pantalla
-        valor1 = resultado;
-        txtResultado.setText(String.valueOf(resultado));
+        valor1 = resultado; //Guardo este valor para futuribles operaciones
+        txtResultado.setText(Double.toString(resultado));
 
         // Me aseguro de que devuelva números enteros en caso de devolver un número terminado en ".0"
         if (resultado % 1 == 0) {
@@ -280,7 +287,4 @@ public class Calculadora extends JFrame {
     public void mostrar() {
         this.setVisible(true);
     }
-
 }
-
-
