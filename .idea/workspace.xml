@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Están hechos los botones numéricos, faltan los operandos">
+    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Están hechos los botones y algunas funciones para optimizar un poco el codigo, falta optimizar aún más y sacar más fallos.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/Calculadora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/Calculadora.java" afterDir="false" />
     </list>
@@ -82,7 +82,7 @@
       <option name="presentableId" value="Default" />
       <updated>1697701496527</updated>
       <workItem from="1697701497617" duration="5859000" />
-      <workItem from="1697710418622" duration="9768000" />
+      <workItem from="1697710418622" duration="13013000" />
     </task>
     <task id="LOCAL-00001" summary="Están hechos los botones numéricos, faltan los operandos">
       <option name="closed" value="true" />
@@ -92,7 +92,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697704882661</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Están hechos los botones y algunas funciones para optimizar un poco el codigo, falta optimizar aún más y sacar más fallos.">
+      <option name="closed" value="true" />
+      <created>1697737537327</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1697737537327</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +108,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Están hechos los botones numéricos, faltan los operandos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Están hechos los botones numéricos, faltan los operandos" />
+    <MESSAGE value="Están hechos los botones y algunas funciones para optimizar un poco el codigo, falta optimizar aún más y sacar más fallos." />
+    <option name="LAST_COMMIT_MESSAGE" value="Están hechos los botones y algunas funciones para optimizar un poco el codigo, falta optimizar aún más y sacar más fallos." />
   </component>
 </project>
