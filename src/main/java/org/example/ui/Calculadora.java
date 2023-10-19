@@ -5,7 +5,6 @@ import static java.lang.Math.sqrt;
 
 public class Calculadora extends JFrame {
     private JTextField txtResultado;
-    private JPanel PanelTexto;
     private JPanel PanelBotones;
     private JPanel Panel1;
     private JButton btn0;
@@ -39,12 +38,15 @@ public class Calculadora extends JFrame {
     public Calculadora() {
         // Configuro la vista de la ventana Calculadora
         this.setContentPane(Panel1);
-        this.pack();
+        //this.pack();
+        this.setSize(375,275);
         this.setTitle("Calculadora");
         this.setResizable(false);
         setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         mostrar();
+
+        txtResultado.setEditable(false);//Impido la entrada de texto por teclado
 
         txtResultado.setText("0"); // Establezco "0" como valor predeterminado en la calculadora
 
