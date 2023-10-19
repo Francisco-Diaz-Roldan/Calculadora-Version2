@@ -67,10 +67,10 @@ public class Calculadora extends JFrame {
 
         btn00.addActionListener(e -> {
             String txtResultadoActual = txtResultado.getText();
-            if (txtResultadoActual.equals("0")){
-                return;//No hace nada
+            if (txtResultadoActual.isEmpty()){
+                txtResultado.setText("0");
             }
-            if (txtResultadoActual.isEmpty() || txtResultadoActual.endsWith(".")) {
+            if (!txtResultadoActual.isEmpty() && !txtResultadoActual.equals("0")) {
                 actualizarTxtResultado("00");
             }
         });
