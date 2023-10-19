@@ -159,7 +159,6 @@ public class Calculadora extends JFrame {
             habilitarBotonOperacion();
         });
 
-
         btnCE.addActionListener(e -> {
             valor1 = 0;
             resultado = 0;
@@ -181,7 +180,7 @@ public class Calculadora extends JFrame {
         });
 
         btnPunto.addActionListener(e -> {
-            if (txtResultado.getText().equals("")) {
+            if (txtResultado.getText().isEmpty()) {
                 txtResultado.setText("0.");
             } else if (txtResultado.getText().contains(".")) {
                 btnPunto.setEnabled(false);
