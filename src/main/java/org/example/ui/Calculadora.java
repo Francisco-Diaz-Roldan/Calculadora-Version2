@@ -112,23 +112,25 @@ public class Calculadora extends JFrame {
         setBotonOperacion(btnPotencia);
         setBotonOperacion(btnPotencia);
         btnRaiz.addActionListener(e -> {
-            resultado = sqrt(Double.parseDouble(txtResultado.getText()));
-            if (Math.floor(resultado)== resultado){
-                txtResultado.setText(Integer.toString((int) resultado));
-            }else{
-                txtResultado.setText(String.valueOf(resultado));
+            String txtResultadoActual = txtResultado.getText().trim(); // Elimina los espacios en blanco
+
+            if (!txtResultadoActual.isEmpty()) {
+                double numero = Double.parseDouble(txtResultadoActual);
+                double resultado = Math.sqrt(numero);
+
+                // Comprueba a ver si el resultado es un número entero
+                if (resultado == (int) resultado) {
+                    txtResultado.setText(Integer.toString((int) resultado));
+                } else {
+                    txtResultado.setText(Double.toString(resultado));
+                }
             }
         });
 
         // Para cambiar de positivo a negativo un valor y viceversa
         btnMasMenos.addActionListener(e -> {
-            if (txtResultado.getText().contains(".")) {
-                btnMasMenos.setEnabled(true);
+            if (!txtResultado.getText().isEmpty()) {
                 double num = Double.parseDouble(txtResultado.getText());
-                num = num * -1;
-                txtResultado.setText(String.valueOf(num));
-            } else {
-                long num = Long.parseLong(txtResultado.getText());
                 num = num * -1;
                 txtResultado.setText(String.valueOf(num));
             }
@@ -191,8 +193,13 @@ public class Calculadora extends JFrame {
     // Consigo el operador cuando le doy al botón de operación
     private void getOperador(String btnTexto) {
         operador = btnTexto.charAt(0);
-        valor1 = Double.parseDouble(txtResultado.getText());
-        txtResultado.setText("");
+
+        if (txtResultado.getText().isEmpty()) {
+            valor1 = 0.0;
+        } else {
+            valor1 = Double.parseDouble(txtResultado.getText());
+        }        txtResultado.setText("");
+
         deshabilitarBotonOperacion();
     }
 
