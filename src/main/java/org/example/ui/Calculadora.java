@@ -5,7 +5,7 @@ import static java.lang.Math.sqrt;
 
 public class Calculadora extends JFrame {
     private JTextField txtResultado;
-    private JPanel PanelBotones;
+    private JPanel Panel;
     private JPanel Panel1;
     private JButton btn0;
     private JButton btn00;
