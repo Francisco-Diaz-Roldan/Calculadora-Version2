@@ -67,7 +67,9 @@ public class Calculadora extends JFrame {
 
         btn00.addActionListener(e -> {
             String txtResultadoActual = txtResultado.getText();
-            // Compruebo el valor del resultado actual para no escribir "00" tras un "0" si no es detrás de un "."
+            if (txtResultadoActual.equals("0")){
+                return;//No hace nada
+            }
             if (txtResultadoActual.isEmpty() || txtResultadoActual.endsWith(".")) {
                 actualizarTxtResultado("00");
             }
@@ -111,12 +113,17 @@ public class Calculadora extends JFrame {
         setBotonOperacion(btnPotencia);
         btnRaiz.addActionListener(e -> {
             resultado = sqrt(Double.parseDouble(txtResultado.getText()));
-            txtResultado.setText(String.valueOf(resultado));
+            if (Math.floor(resultado)== resultado){
+                txtResultado.setText(Integer.toString((int) resultado));
+            }else{
+                txtResultado.setText(String.valueOf(resultado));
+            }
         });
 
         // Para cambiar de positivo a negativo un valor y viceversa
         btnMasMenos.addActionListener(e -> {
             if (txtResultado.getText().contains(".")) {
+                btnMasMenos.setEnabled(true);
                 double num = Double.parseDouble(txtResultado.getText());
                 num = num * -1;
                 txtResultado.setText(String.valueOf(num));
