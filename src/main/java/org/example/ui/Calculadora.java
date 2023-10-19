@@ -247,7 +247,6 @@ public class Calculadora extends JFrame {
 
     // Hago un método para que el btnIgual no esté tan cargado
     private void realizarOperacion(double valor1, double valor2, char operador) {
-        double resultado= 0.0;
 
         switch (operador) {
             case '+':
