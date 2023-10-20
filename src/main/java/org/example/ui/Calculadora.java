@@ -212,7 +212,9 @@ public class Calculadora extends JFrame {
             btn9.setEnabled(true);
             btn0.setEnabled(true);
             btn00.setEnabled(true);
+
         });
+
 
         btnC.addActionListener(e -> {
             String resultado = null;
@@ -243,14 +245,17 @@ public class Calculadora extends JFrame {
     // Consigo el operador cuando le doy al botón de operación
     private void getOperador(String btnTexto) {
         operador = btnTexto.charAt(0);
-
-        if (txtResultado.getText().isEmpty()) {
-            valor1 = 0.0;
-        } else {
-            valor1 = Double.parseDouble(txtResultado.getText());
-        }        txtResultado.setText("");
-
-        desactivarBotonOperacion();
+        if ((!txtResultado.getText().equals(txtErrorDiv0)) && (!txtResultado.getText().equals(txtErrorRaizNega))) {
+            if (txtResultado.getText().isEmpty()) {
+                valor1 = 0.0;
+            } else {
+                valor1 = Double.parseDouble(txtResultado.getText());
+            }
+            txtResultado.setText("");
+            desactivarBotonOperacion();
+        }else{
+            btnC.setEnabled(false);
+        }
     }
 
     // Configuro los botones operacionales
@@ -282,6 +287,8 @@ public class Calculadora extends JFrame {
             desactivarBotonOperacion();
         }
     }
+
+
 
     // Hago una función para deshabilitar los botones de operación
     //TODO cambiar metodo deshabilitarBotonOperacion() a deshabilitar botones, meto tambien los numericos y lo meto todo en la linea 236 dentro del metodo actualizarResultado
