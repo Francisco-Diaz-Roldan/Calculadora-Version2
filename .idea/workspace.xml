@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Hacer el javadoc&#10;Hecho que se desactiven todos los botones y se reactiven en caso de error raiz negativa&#10;&#10;Queda que cuando se divida por 0 se inactiven los botones de operando&#10;&#10;PetA cuando operas despues del texto">
+    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Hacer el javadoc&#10;Hecho que se desactiven todos los botones y se reactiven en caso de error raiz negativa&#10;&#10;Arreglado que cuando se divida por 0 se inactiven los botones de operando -&gt; Modificarlo para que tambien lo haga con el otro error y se quite un monton de codigo sobrante&#10;&#10;PetA cuando operas despues del texto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/Calculadora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/Calculadora.java" afterDir="false" />
     </list>
@@ -85,7 +85,7 @@
       <workItem from="1697710418622" duration="21315000" />
       <workItem from="1697749438257" duration="1264000" />
       <workItem from="1697751704401" duration="173000" />
-      <workItem from="1697786861485" duration="22311000" />
+      <workItem from="1697786861485" duration="28373000" />
     </task>
     <task id="LOCAL-00001" summary="Están hechos los botones numéricos, faltan los operandos">
       <option name="closed" value="true" />
@@ -239,11 +239,30 @@
       <option name="project" value="LOCAL" />
       <updated>1697836201861</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Hacer el javadoc&#10;Hecho que se desactiven todos los botones y se reactiven en caso de error raiz negativa&#10;&#10;Arreglado que cuando se divida por 0 se inactiven los botones de operando -&gt; Modificarlo para que tambien lo haga con el otro error y se quite un monton de codigo sobrante&#10;&#10;PetA cuando operas despues del texto">
+      <option name="closed" value="true" />
+      <created>1697837120006</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1697837120006</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Están hechos los botones numéricos, faltan los operandos" />
@@ -262,6 +281,7 @@
     <MESSAGE value="Hacer el javadoc&#10;Hecho que se desactiven C, ^ y raiz al hacer una raiz negativa&#10;&#10;PetA cuando operas despues del texto" />
     <MESSAGE value="Hacer el javadoc&#10;Hecho que se desactiven todos los botones y se reactiven en caso de error raiz negativa&#10;&#10;PetA cuando operas despues del texto" />
     <MESSAGE value="Hacer el javadoc&#10;Hecho que se desactiven todos los botones y se reactiven en caso de error raiz negativa&#10;&#10;Queda que cuando se divida por 0 se inactiven los botones de operando&#10;&#10;PetA cuando operas despues del texto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hacer el javadoc&#10;Hecho que se desactiven todos los botones y se reactiven en caso de error raiz negativa&#10;&#10;Queda que cuando se divida por 0 se inactiven los botones de operando&#10;&#10;PetA cuando operas despues del texto" />
+    <MESSAGE value="Hacer el javadoc&#10;Hecho que se desactiven todos los botones y se reactiven en caso de error raiz negativa&#10;&#10;Arreglado que cuando se divida por 0 se inactiven los botones de operando -&gt; Modificarlo para que tambien lo haga con el otro error y se quite un monton de codigo sobrante&#10;&#10;PetA cuando operas despues del texto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hacer el javadoc&#10;Hecho que se desactiven todos los botones y se reactiven en caso de error raiz negativa&#10;&#10;Arreglado que cuando se divida por 0 se inactiven los botones de operando -&gt; Modificarlo para que tambien lo haga con el otro error y se quite un monton de codigo sobrante&#10;&#10;PetA cuando operas despues del texto" />
   </component>
 </project>

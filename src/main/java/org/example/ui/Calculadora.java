@@ -245,18 +245,21 @@ public class Calculadora extends JFrame {
     // Consigo el operador cuando le doy al botón de operación
     private void getOperador(String btnTexto) {
         operador = btnTexto.charAt(0);
-        if ((!txtResultado.getText().equals(txtErrorDiv0)) && (!txtResultado.getText().equals(txtErrorRaizNega))) {
+        if (!txtResultado.getText().equals("No se puede dividir por 0")) {
             if (txtResultado.getText().isEmpty()) {
                 valor1 = 0.0;
             } else {
                 valor1 = Double.parseDouble(txtResultado.getText());
             }
             txtResultado.setText("");
-            desactivarBotonOperacion();
-        }else{
             btnC.setEnabled(false);
+            btnRaiz.setEnabled(false);
+        } else {
+            desactivarBotonOperacion();
         }
     }
+
+
 
     // Configuro los botones operacionales
     private void setBotonOperacion(JButton boton) {
@@ -326,7 +329,6 @@ public class Calculadora extends JFrame {
                 if (valor2 == 0) {
                     txtResultado.setText(txtErrorDiv0);
                     existenErrores=true;
-                    btnC.setEnabled(false);
                     btnRaiz.setEnabled(false);
                     btnPotencia.setEnabled(false);
                     btnMultiplicar.setEnabled(false);
@@ -347,6 +349,7 @@ public class Calculadora extends JFrame {
                     btn9.setEnabled(false);
                     btn0.setEnabled(false);
                     btn00.setEnabled(false);
+                    btnC.setEnabled(false);
                     return;
                 } else {
                     resultado = valor1 / valor2;
