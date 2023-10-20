@@ -37,6 +37,9 @@ public class Calculadora extends JFrame {
     private char operador;
     private double resultado = 0.0;
 
+    private String txtErrorDiv0 ="No se puede dividir por 0";
+    private String txtErrorRaizNega ="Entrada no válida";
+
     public Calculadora() {
         // Configuro la vista de la ventana Calculadora
         this.setContentPane(Panel1);
@@ -225,10 +228,12 @@ public class Calculadora extends JFrame {
     }
 
     // Creo una función para actualizar txtResultado en caso de que se introduzca un número tras el 0 predeterminado,
-    // en caso de que se haya hecho raiz de un numero negativo o si se divide por 0
+    // en caso de que se haya hecho raiz de un número negativo o si se divide por 0
     private void actualizarTxtResultado(String num) {
-        if (txtResultado.getText().equals("0") || txtResultado.getText().equals("No se puede dividir por 0") || txtResultado.getText().equals("Entrada no válida")) {
+        if (txtResultado.getText().equals("0") || txtResultado.getText().equals(txtErrorDiv0) || txtResultado.getText().equals(txtErrorRaizNega)) {
             txtResultado.setText(num);
+            btnC.setEnabled(false);
+            deshabilitarBotonOperacion();
         } else {
             String texto = txtResultado.getText() + num;
             txtResultado.setText(texto);
@@ -236,6 +241,7 @@ public class Calculadora extends JFrame {
     }
 
     // Hago una función para deshabilitar los botones de operación
+    //TODO cambiar metodo deshabilitarBotonOperacion() a deshabilitar botones, meto tambien los numericos y lo meto todo en la linea 236 dentro del metodo actualizarResultado
     private void deshabilitarBotonOperacion() {
         btnSumar.setEnabled(false);
         btnRestar.setEnabled(false);
@@ -268,7 +274,7 @@ public class Calculadora extends JFrame {
                 break;
             case '÷':
                 if (valor2 == 0) {
-                    txtResultado.setText("No se puede dividir por 0");
+                    txtResultado.setText(txtErrorDiv0);
                     return;
                 } else {
                     resultado = valor1 / valor2;
