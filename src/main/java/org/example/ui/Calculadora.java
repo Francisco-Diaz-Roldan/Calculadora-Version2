@@ -113,17 +113,21 @@ public class Calculadora extends JFrame {
         setBotonOperacion(btnDividir);
         setBotonOperacion(btnPotencia);
         btnRaiz.addActionListener(e -> {
-            String txtResultadoActual = txtResultado.getText().trim(); // Elimina los espacios en blanco
+            String txtResultadoActual = txtResultado.getText();
 
             if (!txtResultadoActual.isEmpty()) {
                 double numero = Double.parseDouble(txtResultadoActual);
                 double resultado = Math.sqrt(numero);
+                if (txtResultadoActual.contains("-")){
+                    txtResultado.setText("Entrada no válida");
 
-                // Comprueba a ver si el resultado es un número entero
-                if (resultado == (int) resultado) {
-                    txtResultado.setText(Integer.toString((int) resultado));
-                } else {
-                    txtResultado.setText(Double.toString(resultado));
+                }else{
+                    // Comprueba a ver si el resultado es un número entero
+                    if (resultado == (int) resultado) {
+                        txtResultado.setText(Integer.toString((int) resultado));
+                    } else {
+                        txtResultado.setText(Double.toString(resultado));
+                    }
                 }
             }
         });
@@ -137,7 +141,8 @@ public class Calculadora extends JFrame {
                     txtResultado.setText(String.valueOf((int) num));
                 } else {
                     txtResultado.setText(String.valueOf(num));
-                }            }
+                }
+            }
         });
 
         btnIgual.addActionListener(e -> {
@@ -150,7 +155,6 @@ public class Calculadora extends JFrame {
                 // No hace nada en caso de que no se seleccione un operador
                 return;
             }
-
             double valor2 = Double.parseDouble(txtResultado.getText()); // Declaro el segundo operando
             realizarOperacion(valor1, valor2, operador);
             operador = '\0'; // Se reinicia el operador
@@ -165,6 +169,7 @@ public class Calculadora extends JFrame {
             txtResultado.setText("");
             operador = '\0'; // Se reinicia el operador
             habilitarBotonOperacion();
+            btnC.setEnabled(true);
         });
 
         btnC.addActionListener(e -> {
@@ -211,12 +216,18 @@ public class Calculadora extends JFrame {
         boton.addActionListener(e -> {
             String btnTexto = boton.getText();
             getOperador(btnTexto);
+            btnPotencia.setEnabled(true);
+            btnSumar.setEnabled(true);
+            btnRestar.setEnabled(true);
+            btnMultiplicar.setEnabled(true);
+            btnDividir.setEnabled(true);
         });
     }
 
-    // Creo una función para actualizar txtResultado en caso de que se introduzca un número tras el 0 predeterminado
+    // Creo una función para actualizar txtResultado en caso de que se introduzca un número tras el 0 predeterminado,
+    // en caso de que se haya hecho raiz de un numero negativo o si se divide por 0
     private void actualizarTxtResultado(String num) {
-        if (txtResultado.getText().equals("0")) {
+        if (txtResultado.getText().equals("0") || txtResultado.getText().equals("No se puede dividir por 0") || txtResultado.getText().equals("Entrada no válida")) {
             txtResultado.setText(num);
         } else {
             String texto = txtResultado.getText() + num;
@@ -244,7 +255,7 @@ public class Calculadora extends JFrame {
 
     // Hago un método para que el btnIgual no esté tan cargado
     private void realizarOperacion(double valor1, double valor2, char operador) {
-
+        btnC.setEnabled(false);
         switch (operador) {
             case '+':
                 resultado = valor1 + valor2;
