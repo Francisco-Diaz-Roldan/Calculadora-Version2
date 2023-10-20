@@ -3,8 +3,6 @@ package org.example.ui;
 import javax.swing.*;
 import java.util.Objects;
 
-import static java.lang.Math.sqrt;
-
 public class Calculadora extends JFrame {
     private JTextField txtResultado;
     private JPanel Panel;
@@ -37,8 +35,9 @@ public class Calculadora extends JFrame {
     private char operador;
     private double resultado = 0.0;
 
-    private String txtErrorDiv0 ="No se puede dividir por 0";
-    private String txtErrorRaizNega ="Entrada no válida";
+    private final String txtErrorDiv0 ="No se puede dividir por 0";
+    private final String txtErrorRaizNega ="Entrada no válida";
+    private boolean existenErrores;
 
     public Calculadora() {
         // Configuro la vista de la ventana Calculadora
@@ -55,6 +54,7 @@ public class Calculadora extends JFrame {
 
         txtResultado.setText("0"); // Establezco "0" como valor predeterminado en la calculadora
 
+        // Configuro los botones numéricos
         btn0.addActionListener(e -> {
             // Para poder escribir un solo "0" al principio
             String txtResultadoActual = txtResultado.getText();
@@ -69,7 +69,6 @@ public class Calculadora extends JFrame {
                 txtResultado.setText(btn0Text);
             }
         });
-
         btn00.addActionListener(e -> {
             String txtResultadoActual = txtResultado.getText();
             if (txtResultadoActual.isEmpty()){
@@ -79,8 +78,6 @@ public class Calculadora extends JFrame {
                 actualizarTxtResultado("00");
             }
         });
-
-        // Configuro los botones numéricos
         btn1.addActionListener(e -> {
             actualizarTxtResultado("1");
         });
@@ -123,7 +120,6 @@ public class Calculadora extends JFrame {
                 double resultado = Math.sqrt(numero);
                 if (txtResultadoActual.contains("-")){
                     txtResultado.setText("Entrada no válida");
-
                 }else{
                     // Comprueba a ver si el resultado es un número entero
                     if (resultado == (int) resultado) {
@@ -162,8 +158,9 @@ public class Calculadora extends JFrame {
             realizarOperacion(valor1, valor2, operador);
             operador = '\0'; // Se reinicia el operador
 
-            // Habilitar los botones de operación
-            habilitarBotonOperacion();
+            // Activa los botones de operación
+            activarBotonOperacion();
+
         });
 
         btnCE.addActionListener(e -> {
@@ -171,8 +168,9 @@ public class Calculadora extends JFrame {
             resultado = 0;
             txtResultado.setText("");
             operador = '\0'; // Se reinicia el operador
-            habilitarBotonOperacion();
+            activarBotonOperacion();
             btnC.setEnabled(true);
+            existenErrores=false;
         });
 
         btnC.addActionListener(e -> {
@@ -183,7 +181,7 @@ public class Calculadora extends JFrame {
                 resultado = String.valueOf(strB);
                 txtResultado.setText(resultado);
             }else{//Si se ha pulsado sobre un operador por error, si se le da al botón C se reactivan los botones
-                habilitarBotonOperacion();
+                activarBotonOperacion();
             }
         });
 
@@ -211,7 +209,7 @@ public class Calculadora extends JFrame {
             valor1 = Double.parseDouble(txtResultado.getText());
         }        txtResultado.setText("");
 
-        deshabilitarBotonOperacion();
+        desactivarBotonOperacion();
     }
 
     // Configuro los botones operacionales
@@ -224,25 +222,29 @@ public class Calculadora extends JFrame {
             btnRestar.setEnabled(true);
             btnMultiplicar.setEnabled(true);
             btnDividir.setEnabled(true);
+            btnC.setEnabled(true);
         });
     }
 
     // Creo una función para actualizar txtResultado en caso de que se introduzca un número tras el 0 predeterminado,
     // en caso de que se haya hecho raiz de un número negativo o si se divide por 0
     private void actualizarTxtResultado(String num) {
-        if (txtResultado.getText().equals("0") || txtResultado.getText().equals(txtErrorDiv0) || txtResultado.getText().equals(txtErrorRaizNega)) {
+        if (txtResultado.getText().equals("0")) {
             txtResultado.setText(num);
-            btnC.setEnabled(false);
-            deshabilitarBotonOperacion();
         } else {
             String texto = txtResultado.getText() + num;
             txtResultado.setText(texto);
         }
+        if (existenErrores) {
+            btnC.setEnabled(false);
+            desactivarBotonOperacion();
+        }
+
     }
 
     // Hago una función para deshabilitar los botones de operación
     //TODO cambiar metodo deshabilitarBotonOperacion() a deshabilitar botones, meto tambien los numericos y lo meto todo en la linea 236 dentro del metodo actualizarResultado
-    private void deshabilitarBotonOperacion() {
+    private void desactivarBotonOperacion() {
         btnSumar.setEnabled(false);
         btnRestar.setEnabled(false);
         btnMultiplicar.setEnabled(false);
@@ -251,7 +253,7 @@ public class Calculadora extends JFrame {
     }
 
     // Hago otra función para habilitar los botones de operación
-    private void habilitarBotonOperacion() {
+    private void activarBotonOperacion() {
         btnSumar.setEnabled(true);
         btnRestar.setEnabled(true);
         btnMultiplicar.setEnabled(true);
@@ -275,6 +277,7 @@ public class Calculadora extends JFrame {
             case '÷':
                 if (valor2 == 0) {
                     txtResultado.setText(txtErrorDiv0);
+                    existenErrores = true;
                     return;
                 } else {
                     resultado = valor1 / valor2;
@@ -301,3 +304,4 @@ public class Calculadora extends JFrame {
         this.setVisible(true);
     }
 }
+

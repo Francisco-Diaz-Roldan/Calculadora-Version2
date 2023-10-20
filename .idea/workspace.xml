@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Hacer el javadoc&#10; He conseguido solucionar los erores con las operaciones haciendo enable en setBtnOperacion &#10;Tengo que hacer que se tenga que seleccionar previamente un numero antes de poner el operador potencia&#10;&#10;PetA cuando operas despues del texto">
+    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Hacer el javadoc&#10; He conseguido solucionar los erores con las operaciones haciendo enable en setBtnOperacion &#10;&#10;&#10;PetA cuando operas despues del texto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/Calculadora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/Calculadora.java" afterDir="false" />
     </list>
@@ -85,7 +85,7 @@
       <workItem from="1697710418622" duration="21315000" />
       <workItem from="1697749438257" duration="1264000" />
       <workItem from="1697751704401" duration="173000" />
-      <workItem from="1697786861485" duration="12821000" />
+      <workItem from="1697786861485" duration="19340000" />
     </task>
     <task id="LOCAL-00001" summary="Están hechos los botones numéricos, faltan los operandos">
       <option name="closed" value="true" />
@@ -191,7 +191,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697801874421</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Hacer el javadoc&#10; He conseguido solucionar los erores con las operaciones haciendo enable en setBtnOperacion &#10;&#10;&#10;PetA cuando operas despues del texto">
+      <option name="closed" value="true" />
+      <created>1697821984057</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1697821984057</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,6 +216,7 @@
     <MESSAGE value="Solucionado el problema de las potencias." />
     <MESSAGE value="Calculadora terminada." />
     <MESSAGE value="Hacer el javadoc&#10; He conseguido solucionar los erores con las operaciones haciendo enable en setBtnOperacion &#10;Tengo que hacer que se tenga que seleccionar previamente un numero antes de poner el operador potencia&#10;&#10;PetA cuando operas despues del texto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hacer el javadoc&#10; He conseguido solucionar los erores con las operaciones haciendo enable en setBtnOperacion &#10;Tengo que hacer que se tenga que seleccionar previamente un numero antes de poner el operador potencia&#10;&#10;PetA cuando operas despues del texto" />
+    <MESSAGE value="Hacer el javadoc&#10; He conseguido solucionar los erores con las operaciones haciendo enable en setBtnOperacion &#10;&#10;&#10;PetA cuando operas despues del texto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hacer el javadoc&#10; He conseguido solucionar los erores con las operaciones haciendo enable en setBtnOperacion &#10;&#10;&#10;PetA cuando operas despues del texto" />
   </component>
 </project>
