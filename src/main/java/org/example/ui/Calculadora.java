@@ -318,7 +318,28 @@ public class Calculadora extends JFrame {
             case '÷':
                 if (valor2 == 0) {
                     txtResultado.setText(txtErrorDiv0);
-                    existenErrores = true;
+                    existenErrores=true;
+                    btnC.setEnabled(false);
+                    btnRaiz.setEnabled(false);
+                    btnPotencia.setEnabled(false);
+                    btnMultiplicar.setEnabled(false);
+                    btnDividir.setEnabled(false);
+                    btnSumar.setEnabled(false);
+                    btnRestar.setEnabled(false);
+                    btnIgual.setEnabled(false);
+                    btnPunto.setEnabled(false);
+                    btnMasMenos.setEnabled(false);
+                    btn1.setEnabled(false);
+                    btn2.setEnabled(false);
+                    btn3.setEnabled(false);
+                    btn4.setEnabled(false);
+                    btn5.setEnabled(false);
+                    btn6.setEnabled(false);
+                    btn7.setEnabled(false);
+                    btn8.setEnabled(false);
+                    btn9.setEnabled(false);
+                    btn0.setEnabled(false);
+                    btn00.setEnabled(false);
                     return;
                 } else {
                     resultado = valor1 / valor2;
@@ -345,4 +366,3 @@ public class Calculadora extends JFrame {
         this.setVisible(true);
     }
 }
-
