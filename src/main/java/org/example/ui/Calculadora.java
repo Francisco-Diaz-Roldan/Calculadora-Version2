@@ -123,6 +123,24 @@ public class Calculadora extends JFrame {
                     btnC.setEnabled(false);
                     btnRaiz.setEnabled(false);
                     btnPotencia.setEnabled(false);
+                    btnMultiplicar.setEnabled(false);
+                    btnDividir.setEnabled(false);
+                    btnSumar.setEnabled(false);
+                    btnRestar.setEnabled(false);
+                    btnIgual.setEnabled(false);
+                    btnPunto.setEnabled(false);
+                    btnMasMenos.setEnabled(false);
+                    btn1.setEnabled(false);
+                    btn2.setEnabled(false);
+                    btn3.setEnabled(false);
+                    btn4.setEnabled(false);
+                    btn5.setEnabled(false);
+                    btn6.setEnabled(false);
+                    btn7.setEnabled(false);
+                    btn8.setEnabled(false);
+                    btn9.setEnabled(false);
+                    btn0.setEnabled(false);
+                    btn00.setEnabled(false);
                 }else{
                     // Comprueba a ver si el resultado es un número entero
                     if (resultado == (int) resultado) {
@@ -175,7 +193,25 @@ public class Calculadora extends JFrame {
             btnC.setEnabled(true);
             existenErrores=false;
             btnRaiz.setEnabled(true);
-
+            btnPotencia.setEnabled(true);
+            btnMultiplicar.setEnabled(true);
+            btnDividir.setEnabled(true);
+            btnSumar.setEnabled(true);
+            btnRestar.setEnabled(true);
+            btnIgual.setEnabled(true);
+            btnPunto.setEnabled(true);
+            btnMasMenos.setEnabled(true);
+            btn1.setEnabled(true);
+            btn2.setEnabled(true);
+            btn3.setEnabled(true);
+            btn4.setEnabled(true);
+            btn5.setEnabled(true);
+            btn6.setEnabled(true);
+            btn7.setEnabled(true);
+            btn8.setEnabled(true);
+            btn9.setEnabled(true);
+            btn0.setEnabled(true);
+            btn00.setEnabled(true);
         });
 
         btnC.addActionListener(e -> {
