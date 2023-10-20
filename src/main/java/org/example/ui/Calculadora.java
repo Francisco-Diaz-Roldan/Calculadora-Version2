@@ -239,7 +239,6 @@ public class Calculadora extends JFrame {
             btnC.setEnabled(false);
             desactivarBotonOperacion();
         }
-
     }
 
     // Hago una función para deshabilitar los botones de operación
