@@ -213,7 +213,7 @@
                   <text value="√"/>
                 </properties>
               </component>
-              <component id="9be9c" class="javax.swing.JButton" binding="btnCE">
+              <component id="9be9c" class="javax.swing.JButton" binding="btnAC">
                 <constraints>
                   <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <maximum-size width="500" height="500"/>

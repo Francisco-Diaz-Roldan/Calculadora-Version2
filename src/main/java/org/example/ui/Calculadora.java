@@ -27,7 +27,7 @@ public class Calculadora extends JFrame {
     private JButton btnRaiz;
     private JButton btnIgual;
     private JButton btnC;
-    private JButton btnCE;
+    private JButton btnAC;
     private JButton btnPunto;
 
 
@@ -114,12 +114,15 @@ public class Calculadora extends JFrame {
         setBotonOperacion(btnPotencia);
         btnRaiz.addActionListener(e -> {
             String txtResultadoActual = txtResultado.getText();
-
             if (!txtResultadoActual.isEmpty()) {
                 double numero = Double.parseDouble(txtResultadoActual);
                 double resultado = Math.sqrt(numero);
                 if (txtResultadoActual.contains("-")){
-                    txtResultado.setText("Entrada no válida");
+                    txtResultado.setText(txtErrorRaizNega);
+                    existenErrores=true;
+                    btnC.setEnabled(false);
+                    btnRaiz.setEnabled(false);
+                    btnPotencia.setEnabled(false);
                 }else{
                     // Comprueba a ver si el resultado es un número entero
                     if (resultado == (int) resultado) {
@@ -163,7 +166,7 @@ public class Calculadora extends JFrame {
 
         });
 
-        btnCE.addActionListener(e -> {
+        btnAC.addActionListener(e -> {
             valor1 = 0;
             resultado = 0;
             txtResultado.setText("");
@@ -171,6 +174,8 @@ public class Calculadora extends JFrame {
             activarBotonOperacion();
             btnC.setEnabled(true);
             existenErrores=false;
+            btnRaiz.setEnabled(true);
+
         });
 
         btnC.addActionListener(e -> {
@@ -237,6 +242,7 @@ public class Calculadora extends JFrame {
         }
         if (existenErrores) {
             btnC.setEnabled(false);
+            btnRaiz.setEnabled(false);
             desactivarBotonOperacion();
         }
     }
