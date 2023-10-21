@@ -3,6 +3,7 @@ package org.example.ui;
 import javax.swing.*;
 import java.util.Objects;
 import static org.example.ui.BotonManager.*;
+import static org.example.ui.Constantes.*;
 
 public class Calculadora extends JFrame {
     //Declaro las variables
@@ -66,7 +67,7 @@ public class Calculadora extends JFrame {
         activarBotonesTodos(this);
 
 
-        txtResultado.setText("0"); // Establezco "0" como valor predeterminado en la calculadora
+        reiniciarPantalla(); // Establezco "0" como valor predeterminado en la calculadora
 
         // Configuro los botones numéricos
         btn0.addActionListener(e -> {
@@ -74,7 +75,7 @@ public class Calculadora extends JFrame {
             String txtResultadoActual = txtResultado.getText();
             // Se comprueba que el resultado que aparece en pantalla esté vacío
             if (txtResultadoActual.isEmpty()) {
-                txtResultado.setText("0");
+            reiniciarPantalla();
             } else if (txtResultadoActual.equals("0")) {
                 // Si el resultado que aparece en pantalla es "0", no deja que se añada otro
             } else {
@@ -88,36 +89,36 @@ public class Calculadora extends JFrame {
             if (txtResultadoActual.isEmpty()){
                 reiniciarPantalla();
             }
-            if (!txtResultadoActual.isEmpty() && !txtResultadoActual.equals("0")) {
-                actualizarTxtResultado("00");
+            if (!txtResultadoActual.isEmpty() && !txtResultadoActual.equals(CERO)) {
+                actualizarTxtResultado(DOBLE_CERO);
             }
         });
         btn1.addActionListener(e -> {
-            actualizarTxtResultado("1");
+            actualizarTxtResultado(UNO);
         });
         btn2.addActionListener(e -> {
-            actualizarTxtResultado("2");
+            actualizarTxtResultado(DOS);
         });
         btn3.addActionListener(e -> {
-            actualizarTxtResultado("3");
+            actualizarTxtResultado(TRES);
         });
         btn4.addActionListener(e -> {
-            actualizarTxtResultado("4");
+            actualizarTxtResultado(CUATRO);
         });
         btn5.addActionListener(e -> {
-            actualizarTxtResultado("5");
+            actualizarTxtResultado(CINCO);
         });
         btn6.addActionListener(e -> {
-            actualizarTxtResultado("6");
+            actualizarTxtResultado(SEIS);
         });
         btn7.addActionListener(e -> {
-            actualizarTxtResultado("7");
+            actualizarTxtResultado(SIETE);
         });
         btn8.addActionListener(e -> {
-            actualizarTxtResultado("8");
+            actualizarTxtResultado(OCHO);
         });
         btn9.addActionListener(e -> {
-            actualizarTxtResultado("9");
+            actualizarTxtResultado(NUEVE);
         });
 
         // Configuro los botones operacionales
@@ -159,11 +160,7 @@ public class Calculadora extends JFrame {
                 // Activa los botones de operación
                 BotonManager.activarBotonOperacion(this);
             }
-            if (resultado % 1 == 0) {
-                txtResultado.setText(Integer.toString((int) resultado));
-            } else {
-                txtResultado.setText(Double.toString(resultado));
-            }
+            conversorDouble();
             valor1 = resultado;
             calculoRealizado = true;
         });
@@ -320,13 +317,16 @@ public class Calculadora extends JFrame {
         txtResultado.setText(Double.toString(resultado));
 
         // Me aseguro de que devuelva números enteros en caso de devolver un número terminado en ".0"
+        conversorDouble();
+    }
+
+    private void conversorDouble() {
         if (resultado % 1 == 0) {
             txtResultado.setText(Integer.toString((int) resultado));
         } else {
             txtResultado.setText(Double.toString(resultado));
         }
     }
-
 
 
     public void mostrar() {
