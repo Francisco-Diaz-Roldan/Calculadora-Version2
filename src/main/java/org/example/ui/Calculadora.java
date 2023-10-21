@@ -45,15 +45,8 @@ public class Calculadora extends JFrame {
 
     public Calculadora() {
         // Configuro la vista de la ventana Calculadora
-        this.setContentPane(Panel1);
-        //this.pack();
-        this.setSize(375,275);
-        this.setTitle("Calculadora");
-        this.setResizable(false);
-        setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        configurarVentana();
         mostrar();
-
 
         // Llamo a BotonManager para activar los botones
         activarBotonOperacion(this);
@@ -75,7 +68,7 @@ public class Calculadora extends JFrame {
             String txtResultadoActual = txtResultado.getText();
             // Se comprueba que el resultado que aparece en pantalla esté vacío
             if (txtResultadoActual.isEmpty()) {
-            reiniciarPantalla();
+                txtResultado.setText("0");
             } else if (txtResultadoActual.equals("0")) {
                 // Si el resultado que aparece en pantalla es "0", no deja que se añada otro
             } else {
@@ -84,12 +77,10 @@ public class Calculadora extends JFrame {
                 txtResultado.setText(btn0Text);
             }
         });
+
         btn00.addActionListener(e -> {
             String txtResultadoActual = txtResultado.getText();
-            if (txtResultadoActual.isEmpty()){
-                reiniciarPantalla();
-            }
-            if (!txtResultadoActual.isEmpty() && !txtResultadoActual.equals(CERO)) {
+            if (!txtResultadoActual.equals(CERO) && !calculoRealizado) {
                 actualizarTxtResultado(DOBLE_CERO);
             }
         });
@@ -229,6 +220,7 @@ public class Calculadora extends JFrame {
 
     // Métodos
     // Consigo el operador cuando le doy al botón de operación
+
     private void getOperador(String btnTexto) {
         operador = btnTexto.charAt(0);
         if (!txtResultado.getText().equals("No se puede dividir por 0") &&
@@ -243,12 +235,12 @@ public class Calculadora extends JFrame {
         }
         btnC.setEnabled(false);
     }
-
     private void limpiarPantalla() {
         txtResultado.setText("");
     }
 
     // Configuro los botones operacionales
+
     private void setBotonOperacion(JButton boton) {
         boton.addActionListener(e -> {
             String btnTexto = boton.getText();
@@ -263,11 +255,11 @@ public class Calculadora extends JFrame {
             }
         });
     }
-
     // Creo una función para actualizar txtResultado en caso de que se introduzca un número tras el 0 predeterminado,
     // en caso de que se haya hecho raiz de un número negativo o si se divide por 0
+
     private void actualizarTxtResultado(String num) {
-        if (txtResultado.getText().equals("0") || calculoRealizado) {
+        if (txtResultado.getText().equals(CERO) || calculoRealizado) {
             txtResultado.setText(num);
             calculoRealizado = false; // Reiniciar el estado de cálculo de la raíz
             btnC.setEnabled(true);
@@ -282,8 +274,6 @@ public class Calculadora extends JFrame {
         }
     }
 
-
-    // Hago un método para que el btnIgual no esté tan cargado
     // Hago un método para que el btnIgual no esté tan cargado
     private void realizarOperacion(double valor1, double valor2, char operador) {
         btnC.setEnabled(false);
@@ -319,7 +309,6 @@ public class Calculadora extends JFrame {
         // Me aseguro de que devuelva números enteros en caso de devolver un número terminado en ".0"
         conversorDouble();
     }
-
     private void conversorDouble() {
         if (resultado % 1 == 0) {
             txtResultado.setText(Integer.toString((int) resultado));
@@ -328,6 +317,15 @@ public class Calculadora extends JFrame {
         }
     }
 
+    private void configurarVentana() {
+        this.setContentPane(Panel1);
+        //this.pack();
+        this.setSize(375,275);
+        this.setTitle("Calculadora");
+        this.setResizable(false);
+        setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
 
     public void mostrar() {
         this.setVisible(true);
