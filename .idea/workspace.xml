@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Hacer el javadoc&#10;Hecho que se desactiven todos los botones y se reactiven en caso de error raiz negativa&#10;&#10;Arreglado que cuando se divida por 0 se inactiven los botones de operando -&gt; Modificarlo para que tambien lo haga con el otro error y se quite un monton de codigo sobrante&#10;&#10;PetA cuando operas despues del texto">
+    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Hacer el javadoc&#10;Unificar formato de los 2 tipos de errores">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/Calculadora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/Calculadora.java" afterDir="false" />
     </list>
@@ -32,22 +32,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/pacod/IdeaProjects/ProcesadoDeArchivos",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "onboarding.tips.debug.path": "C:/Users/pacod/IdeaProjects/Calculadora2/src/main/java/org/example/Main.java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/pacod/IdeaProjects/ProcesadoDeArchivos&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/pacod/IdeaProjects/Calculadora2/src/main/java/org/example/Main.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\pacod\IdeaProjects\Calculadora2\src\main\java\org\example" />
@@ -86,6 +86,7 @@
       <workItem from="1697749438257" duration="1264000" />
       <workItem from="1697751704401" duration="173000" />
       <workItem from="1697786861485" duration="29404000" />
+      <workItem from="1697846650557" duration="1208000" />
     </task>
     <task id="LOCAL-00001" summary="Están hechos los botones numéricos, faltan los operandos">
       <option name="closed" value="true" />
@@ -255,7 +256,23 @@
       <option name="project" value="LOCAL" />
       <updated>1697845926755</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Hacer el javadoc&#10;Hecho que se desactiven todos los botones y se reactiven en caso de error raiz negativa&#10;&#10;Arreglado que cuando se divida por 0 se inactiven los botones de operando -&gt; Modificarlo para que tambien lo haga con el otro error y se quite un monton de codigo sobrante&#10;&#10;PetA cuando operas despues del texto">
+      <option name="closed" value="true" />
+      <created>1697846673760</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1697846673760</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Hacer el javadoc&#10;Hecho que se desactiven todos los botones y se reactiven en caso de error raiz negativa&#10;&#10;Arreglado que cuando se divida por 0 se inactiven los botones de operando -&gt; Modificarlo para que tambien lo haga con el otro error y se quite un monton de codigo sobrante&#10;&#10;PetA cuando operas despues del texto">
+      <option name="closed" value="true" />
+      <created>1697846918202</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1697846918202</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,6 +307,7 @@
     <MESSAGE value="Hacer el javadoc&#10;Hecho que se desactiven todos los botones y se reactiven en caso de error raiz negativa&#10;&#10;PetA cuando operas despues del texto" />
     <MESSAGE value="Hacer el javadoc&#10;Hecho que se desactiven todos los botones y se reactiven en caso de error raiz negativa&#10;&#10;Queda que cuando se divida por 0 se inactiven los botones de operando&#10;&#10;PetA cuando operas despues del texto" />
     <MESSAGE value="Hacer el javadoc&#10;Hecho que se desactiven todos los botones y se reactiven en caso de error raiz negativa&#10;&#10;Arreglado que cuando se divida por 0 se inactiven los botones de operando -&gt; Modificarlo para que tambien lo haga con el otro error y se quite un monton de codigo sobrante&#10;&#10;PetA cuando operas despues del texto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hacer el javadoc&#10;Hecho que se desactiven todos los botones y se reactiven en caso de error raiz negativa&#10;&#10;Arreglado que cuando se divida por 0 se inactiven los botones de operando -&gt; Modificarlo para que tambien lo haga con el otro error y se quite un monton de codigo sobrante&#10;&#10;PetA cuando operas despues del texto" />
+    <MESSAGE value="Hacer el javadoc&#10;Unificar formato de los 2 tipos de errores" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hacer el javadoc&#10;Unificar formato de los 2 tipos de errores" />
   </component>
 </project>
