@@ -50,8 +50,6 @@ public class Calculadora extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         mostrar();
 
-        txtResultado.setEditable(false);//Impido la entrada de texto por teclado
-
         txtResultado.setText("0"); // Establezco "0" como valor predeterminado en la calculadora
 
         // Configuro los botones numéricos
@@ -294,7 +292,6 @@ public class Calculadora extends JFrame {
 
 
     // Hago una función para deshabilitar los botones de operación
-    //TODO cambiar metodo deshabilitarBotonOperacion() a deshabilitar botones, meto tambien los numericos y lo meto todo en la linea 236 dentro del metodo actualizarResultado
     private void desactivarBotonOperacion() {
         btnSumar.setEnabled(false);
         btnRestar.setEnabled(false);

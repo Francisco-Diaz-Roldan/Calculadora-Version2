@@ -282,7 +282,7 @@
         </constraints>
         <properties>
           <background color="-12368057"/>
-          <editable value="true"/>
+          <editable value="false"/>
           <font name="Consolas" size="22" style="1"/>
           <foreground color="-394241"/>
           <horizontalAlignment value="4"/>
