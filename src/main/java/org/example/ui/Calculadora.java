@@ -142,15 +142,16 @@ public class Calculadora extends JFrame {
             realizarOperacion(valor1, valor2, operador);
             operador = '\0'; // Se reinicia el operador
 
-            // Activa los botones de operación
-            activarBotonOperacion();
-
+            if (!existenErrores){
+                // Activa los botones de operación
+                activarBotonOperacion();
+            }
         });
 
         btnAC.addActionListener(e -> {
             valor1 = 0;
             resultado = 0;
-            txtResultado.setText("");
+            limpiarPantalla();
             operador = '\0'; // Se reinicia el operador
             activarBotonOperacion();
             btnC.setEnabled(true);
@@ -191,7 +192,6 @@ public class Calculadora extends JFrame {
             if (txtResultadoActual.contains("-")){
                 txtResultado.setText(txtErrorRaizNega);
                 existenErrores=true;
-                btnC.setEnabled(false);
                 desactivarBotonesTodos();
             }else{
                 // Comprueba a ver si el resultado es un número entero
@@ -217,10 +217,14 @@ public class Calculadora extends JFrame {
             } else {
                 valor1 = Double.parseDouble(txtResultado.getText());
             }
-            txtResultado.setText("");
+            limpiarPantalla();
             desactivarBotonOperacion();
         }
         btnC.setEnabled(false);
+    }
+
+    private void limpiarPantalla() {
+        txtResultado.setText("");
     }
 
     // Configuro los botones operacionales
@@ -228,10 +232,13 @@ public class Calculadora extends JFrame {
         boton.addActionListener(e -> {
             String btnTexto = boton.getText();
             getOperador(btnTexto);
-            activarBotonOperacion();
+            if (!existenErrores) {
+                activarBotonOperacion();
+            }
             btnC.setEnabled(true);
             if (txtResultado.getText().equals("No se puede dividir por 0")) {
                 btnC.setEnabled(false);
+                desactivarBotonOperacion();
             }
         });
     }
