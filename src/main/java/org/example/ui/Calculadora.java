@@ -252,13 +252,10 @@ public class Calculadora extends JFrame {
                 valor1 = Double.parseDouble(txtResultado.getText());
             }
             txtResultado.setText("");
-            btnC.setEnabled(false);
-            btnRaiz.setEnabled(false);
-        } else {
             desactivarBotonOperacion();
         }
+        btnC.setEnabled(false);
     }
-
 
 
     // Configuro los botones operacionales
@@ -272,6 +269,9 @@ public class Calculadora extends JFrame {
             btnMultiplicar.setEnabled(true);
             btnDividir.setEnabled(true);
             btnC.setEnabled(true);
+            if (txtResultado.getText().equals("No se puede dividir por 0")) {
+                btnC.setEnabled(false);
+            }
         });
     }
 
@@ -349,7 +349,6 @@ public class Calculadora extends JFrame {
                     btn9.setEnabled(false);
                     btn0.setEnabled(false);
                     btn00.setEnabled(false);
-                    btnC.setEnabled(false);
                     return;
                 } else {
                     resultado = valor1 / valor2;
