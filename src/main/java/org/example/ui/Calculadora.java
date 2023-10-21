@@ -34,7 +34,32 @@ public class Calculadora extends JFrame {
     private double valor1 = 0.0;
     private double resultado = 0.0;
     private char operador;
+    ///////////////////////////////////////////////////////////////////////////
 
+
+    public double getValor1() {
+        return valor1;
+    }
+
+    public void setValor1(double valor1) {
+        this.valor1 = valor1;
+    }
+
+    public double getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(double resultado) {
+        this.resultado = resultado;
+    }
+
+    public char getOperador() {
+        return operador;
+    }
+
+    public void setOperador(char operador) {
+        this.operador = operador;
+    }
 
     ///////////////////////////////////////////////////////////////////////////
     private final String txtErrorDiv0 ="No se puede dividir por 0";
@@ -280,6 +305,7 @@ public class Calculadora extends JFrame {
 
 
     // Hago un método para que el btnIgual no esté tan cargado
+    // Hago un método para que el btnIgual no esté tan cargado
     private void realizarOperacion(double valor1, double valor2, char operador) {
         btnC.setEnabled(false);
         switch (operador) {
@@ -296,7 +322,7 @@ public class Calculadora extends JFrame {
                 if (valor2 == 0) {
                     txtResultado.setText(txtErrorDiv0);
                     existenErrores=true;
-                    desactivarBotonesTodos(this);
+                    BotonManager.desactivarBotonesTodos(this);
                     return;
                 } else {
                     resultado = valor1 / valor2;
@@ -306,17 +332,19 @@ public class Calculadora extends JFrame {
                 resultado = Math.pow(valor1, valor2);
                 break;
         }
+
         // Restablezco el "valor1" y muestro el resultado por pantalla
         valor1 = resultado; //Guardo este valor para futuribles operaciones
         txtResultado.setText(Double.toString(resultado));
+
         // Me aseguro de que devuelva números enteros en caso de devolver un número terminado en ".0"
         if (resultado % 1 == 0) {
             txtResultado.setText(Integer.toString((int) resultado));
         } else {
             txtResultado.setText(Double.toString(resultado));
         }
-        calculoRealizado = true;
     }
+
 
 
     public void mostrar() {
