@@ -34,34 +34,9 @@ public class Calculadora extends JFrame {
     private double valor1 = 0.0;
     private double resultado = 0.0;
     private char operador;
-    ///////////////////////////////////////////////////////////////////////////
 
 
-    public double getValor1() {
-        return valor1;
-    }
 
-    public void setValor1(double valor1) {
-        this.valor1 = valor1;
-    }
-
-    public double getResultado() {
-        return resultado;
-    }
-
-    public void setResultado(double resultado) {
-        this.resultado = resultado;
-    }
-
-    public char getOperador() {
-        return operador;
-    }
-
-    public void setOperador(char operador) {
-        this.operador = operador;
-    }
-
-    ///////////////////////////////////////////////////////////////////////////
     private final String txtErrorDiv0 ="No se puede dividir por 0";
     private final String txtErrorRaizNega ="Entrada no válida";
     private boolean existenErrores;
@@ -91,9 +66,6 @@ public class Calculadora extends JFrame {
         activarBotonesTodos(this);
 
 
-
-
-
         txtResultado.setText("0"); // Establezco "0" como valor predeterminado en la calculadora
 
         // Configuro los botones numéricos
@@ -114,7 +86,7 @@ public class Calculadora extends JFrame {
         btn00.addActionListener(e -> {
             String txtResultadoActual = txtResultado.getText();
             if (txtResultadoActual.isEmpty()){
-                txtResultado.setText("0");
+                reiniciarPantalla();
             }
             if (!txtResultadoActual.isEmpty() && !txtResultadoActual.equals("0")) {
                 actualizarTxtResultado("00");
@@ -177,18 +149,23 @@ public class Calculadora extends JFrame {
                 return;
             }
             // Para que no siga operando tras darle al "=" tras una operación
-            if (operador == '\0') {
-                // No hace nada en caso de que no se seleccione un operador
+            if (operador == '\0') {// No hace nada en caso de que no se seleccione un operador
                 return;
             }
             double valor2 = Double.parseDouble(txtResultado.getText()); // Declaro el segundo operando
             realizarOperacion(valor1, valor2, operador);
             operador = '\0'; // Se reinicia el operador
-
             if (!existenErrores){
                 // Activa los botones de operación
                 BotonManager.activarBotonOperacion(this);
             }
+            if (resultado % 1 == 0) {
+                txtResultado.setText(Integer.toString((int) resultado));
+            } else {
+                txtResultado.setText(Double.toString(resultado));
+            }
+            valor1 = resultado;
+            calculoRealizado = true;
         });
 
         btnAC.addActionListener(e -> {
@@ -226,14 +203,19 @@ public class Calculadora extends JFrame {
         });
     }
 
+    private void reiniciarPantalla() {
+        txtResultado.setText("0");
+    }
+
     private void calcularRaiz() {
         String txtResultadoActual = txtResultado.getText();
         if (!txtResultadoActual.isEmpty()) {
             double numero = Double.parseDouble(txtResultadoActual);
             double resultado = Math.sqrt(numero);
             if (txtResultadoActual.contains("-")){
-                txtResultado.setText(txtErrorRaizNega);
+                txtResultado.setText("Entrada no válida");
                 existenErrores=true;
+                btnC.setEnabled(false);//Me aseguro de que btnC no se vuelve a activar
                 desactivarBotonesTodos(this);
             }else{
                 // Comprueba a ver si el resultado es un número entero
@@ -320,7 +302,7 @@ public class Calculadora extends JFrame {
                 break;
             case '÷':
                 if (valor2 == 0) {
-                    txtResultado.setText(txtErrorDiv0);
+                    txtResultado.setText("No se puede dividir por 0");
                     existenErrores=true;
                     BotonManager.desactivarBotonesTodos(this);
                     return;
