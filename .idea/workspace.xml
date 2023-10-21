@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Hacer el javadoc&#10;Unificar formato de los 2 tipos de errores&#10;Hacer raiz n de un numero en lugar de la raiz cuadrada">
+    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Hacer el javadoc&#10;Unificar formato de los 2 tipos de errores&#10;Hacer raiz n de un numero en lugar de la raiz cuadrada&#10;Sigohaciendo metodos y optimizando codigo">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/Calculadora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/Calculadora.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,22 +32,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pacod/IdeaProjects/ProcesadoDeArchivos&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/pacod/IdeaProjects/Calculadora2/src/main/java/org/example/Main.java&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/pacod/IdeaProjects/Calculadora2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "onboarding.tips.debug.path": "C:/Users/pacod/IdeaProjects/Calculadora2/src/main/java/org/example/Main.java",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\pacod\IdeaProjects\Calculadora2\src\main\java\org\example" />
@@ -85,7 +86,9 @@
       <workItem from="1697749438257" duration="1264000" />
       <workItem from="1697751704401" duration="173000" />
       <workItem from="1697786861485" duration="29404000" />
-      <workItem from="1697846650557" duration="2255000" />
+      <workItem from="1697846650557" duration="4948000" />
+      <workItem from="1697909466924" duration="3229000" />
+      <workItem from="1697913112488" duration="676000" />
     </task>
     <task id="LOCAL-00001" summary="Están hechos los botones numéricos, faltan los operandos">
       <option name="closed" value="true" />
@@ -279,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697848162324</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Hacer el javadoc&#10;Unificar formato de los 2 tipos de errores&#10;Hacer raiz n de un numero en lugar de la raiz cuadrada&#10;Sigohaciendo metodos y optimizando codigo">
+      <option name="closed" value="true" />
+      <created>1697849351788</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1697849351788</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,6 +327,7 @@
     <MESSAGE value="Hacer el javadoc&#10;Hecho que se desactiven todos los botones y se reactiven en caso de error raiz negativa&#10;&#10;Arreglado que cuando se divida por 0 se inactiven los botones de operando -&gt; Modificarlo para que tambien lo haga con el otro error y se quite un monton de codigo sobrante&#10;&#10;PetA cuando operas despues del texto" />
     <MESSAGE value="Hacer el javadoc&#10;Unificar formato de los 2 tipos de errores" />
     <MESSAGE value="Hacer el javadoc&#10;Unificar formato de los 2 tipos de errores&#10;Hacer raiz n de un numero en lugar de la raiz cuadrada" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hacer el javadoc&#10;Unificar formato de los 2 tipos de errores&#10;Hacer raiz n de un numero en lugar de la raiz cuadrada" />
+    <MESSAGE value="Hacer el javadoc&#10;Unificar formato de los 2 tipos de errores&#10;Hacer raiz n de un numero en lugar de la raiz cuadrada&#10;Sigohaciendo metodos y optimizando codigo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hacer el javadoc&#10;Unificar formato de los 2 tipos de errores&#10;Hacer raiz n de un numero en lugar de la raiz cuadrada&#10;Sigohaciendo metodos y optimizando codigo" />
   </component>
 </project>

@@ -38,6 +38,7 @@ public class Calculadora extends JFrame {
     private final String txtErrorDiv0 ="No se puede dividir por 0";
     private final String txtErrorRaizNega ="Entrada no válida";
     private boolean existenErrores;
+    private boolean calculoRealizado = false;
 
     public Calculadora() {
         // Configuro la vista de la ventana Calculadora
@@ -111,33 +112,7 @@ public class Calculadora extends JFrame {
         setBotonOperacion(btnDividir);
         setBotonOperacion(btnPotencia);
         btnRaiz.addActionListener(e -> {
-            String txtResultadoActual = txtResultado.getText();
-            if (!txtResultadoActual.isEmpty()) {
-                double numero = Double.parseDouble(txtResultadoActual);
-                double resultado = Math.sqrt(numero);
-                if (txtResultadoActual.contains("-")){
-                    txtResultado.setText(txtErrorRaizNega);
-                    existenErrores=true;
-                    btnC.setEnabled(false);
-                    btnRaiz.setEnabled(false);
-                    btnPotencia.setEnabled(false);
-                    btnMultiplicar.setEnabled(false);
-                    btnDividir.setEnabled(false);
-                    btnSumar.setEnabled(false);
-                    btnRestar.setEnabled(false);
-                    btnIgual.setEnabled(false);
-                    btnPunto.setEnabled(false);
-                    btnMasMenos.setEnabled(false);
-                    desactivarBotonesNum();
-                }else{
-                    // Comprueba a ver si el resultado es un número entero
-                    if (resultado == (int) resultado) {
-                        txtResultado.setText(Integer.toString((int) resultado));
-                    } else {
-                        txtResultado.setText(Double.toString(resultado));
-                    }
-                }
-            }
+            calcularRaiz();
         });
 
         // Para cambiar de positivo a negativo un valor y viceversa
@@ -208,6 +183,28 @@ public class Calculadora extends JFrame {
         });
     }
 
+    private void calcularRaiz() {
+        String txtResultadoActual = txtResultado.getText();
+        if (!txtResultadoActual.isEmpty()) {
+            double numero = Double.parseDouble(txtResultadoActual);
+            double resultado = Math.sqrt(numero);
+            if (txtResultadoActual.contains("-")){
+                txtResultado.setText(txtErrorRaizNega);
+                existenErrores=true;
+                btnC.setEnabled(false);
+                desactivarBotonesTodos();
+            }else{
+                // Comprueba a ver si el resultado es un número entero
+                if (resultado == (int) resultado) {
+                    txtResultado.setText(Integer.toString((int) resultado));
+                } else {
+                    txtResultado.setText(Double.toString(resultado));
+                }
+                calculoRealizado = true;
+            }
+        }
+    }
+
 
     // Métodos
     // Consigo el operador cuando le doy al botón de operación
@@ -242,17 +239,20 @@ public class Calculadora extends JFrame {
     // Creo una función para actualizar txtResultado en caso de que se introduzca un número tras el 0 predeterminado,
     // en caso de que se haya hecho raiz de un número negativo o si se divide por 0
     private void actualizarTxtResultado(String num) {
-        if (txtResultado.getText().equals("0")) {
+        if (txtResultado.getText().equals("0") || calculoRealizado) {
             txtResultado.setText(num);
+            calculoRealizado = false; // Reiniciar el estado de cálculo de la raíz
+            btnC.setEnabled(true);
         } else {
             String texto = txtResultado.getText() + num;
             txtResultado.setText(texto);
         }
         if (existenErrores) {
             btnC.setEnabled(false);
-            btnRaiz.setEnabled(false);//Esto es importante que esté aparte del método desactivarBotonOperacion()
+            btnRaiz.setEnabled(false);
             desactivarBotonOperacion();
         }
+
     }
 
 
@@ -294,6 +294,7 @@ public class Calculadora extends JFrame {
         } else {
             txtResultado.setText(Double.toString(resultado));
         }
+        calculoRealizado = true;
     }
 
     // Hago una función para habilitar los botones de operación
