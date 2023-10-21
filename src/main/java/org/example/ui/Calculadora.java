@@ -2,39 +2,41 @@ package org.example.ui;
 
 import javax.swing.*;
 import java.util.Objects;
+import static org.example.ui.BotonManager.*;
 
 public class Calculadora extends JFrame {
+    //Declaro las variables
     private JTextField txtResultado;
     private JPanel Panel;
     private JPanel Panel1;
-    private JButton btn0;
-    private JButton btn00;
-    private JButton btn1;
-    private JButton btn2;
-    private JButton btn3;
-    private JButton btn4;
-    private JButton btn5;
-    private JButton btn6;
-    private JButton btn7;
-    private JButton btn8;
-    private JButton btn9;
-    private JButton btnSumar;
-    private JButton btnRestar;
-    private JButton btnMultiplicar;
-    private JButton btnDividir;
-    private JButton btnMasMenos;
-    private JButton btnPotencia;
-    private JButton btnRaiz;
-    private JButton btnIgual;
-    private JButton btnC;
-    private JButton btnAC;
-    private JButton btnPunto;
-
-
+    protected JButton btn0;
+    protected JButton btn00;
+    protected JButton btn1;
+    protected JButton btn2;
+    protected JButton btn3;
+    protected JButton btn4;
+    protected JButton btn5;
+    protected JButton btn6;
+    protected JButton btn7;
+    protected JButton btn8;
+    protected JButton btn9;
+    protected JButton btnSumar;
+    protected JButton btnRestar;
+    protected JButton btnMultiplicar;
+    protected JButton btnDividir;
+    protected JButton btnMasMenos;
+    protected JButton btnPotencia;
+    protected JButton btnRaiz;
+    protected JButton btnIgual;
+    protected JButton btnC;
+    protected JButton btnAC;
+    protected JButton btnPunto;
     private double valor1 = 0.0;
-    private char operador;
     private double resultado = 0.0;
+    private char operador;
 
+
+    ///////////////////////////////////////////////////////////////////////////
     private final String txtErrorDiv0 ="No se puede dividir por 0";
     private final String txtErrorRaizNega ="Entrada no válida";
     private boolean existenErrores;
@@ -50,6 +52,22 @@ public class Calculadora extends JFrame {
         setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         mostrar();
+
+
+        // Llamo a BotonManager para activar los botones
+        activarBotonOperacion(this);
+        activarBotonesNum(this);
+        activarBotonesOtros(this);
+        activarBotonesTodos(this);
+
+        desactivarBotonOperacion(this);
+        desactivarBotonesNum(this);
+        activarBotonesOtros(this);
+        activarBotonesTodos(this);
+
+
+
+
 
         txtResultado.setText("0"); // Establezco "0" como valor predeterminado en la calculadora
 
@@ -144,7 +162,7 @@ public class Calculadora extends JFrame {
 
             if (!existenErrores){
                 // Activa los botones de operación
-                activarBotonOperacion();
+                BotonManager.activarBotonOperacion(this);
             }
         });
 
@@ -153,12 +171,11 @@ public class Calculadora extends JFrame {
             resultado = 0;
             limpiarPantalla();
             operador = '\0'; // Se reinicia el operador
-            activarBotonOperacion();
             btnC.setEnabled(true);
             existenErrores=false;
-            activarBotonesTodos();
+            activarBotonesTodos(this);
         });
-        
+
         btnC.addActionListener(e -> {
             String resultado = null;
             if (!txtResultado.getText().isEmpty()) {
@@ -167,7 +184,7 @@ public class Calculadora extends JFrame {
                 resultado = String.valueOf(strB);
                 txtResultado.setText(resultado);
             }else{//Si se ha pulsado sobre un operador por error, si se le da al botón C se reactivan los botones
-                activarBotonOperacion();
+                activarBotonOperacion(this);
             }
         });
 
@@ -192,7 +209,7 @@ public class Calculadora extends JFrame {
             if (txtResultadoActual.contains("-")){
                 txtResultado.setText(txtErrorRaizNega);
                 existenErrores=true;
-                desactivarBotonesTodos();
+                desactivarBotonesTodos(this);
             }else{
                 // Comprueba a ver si el resultado es un número entero
                 if (resultado == (int) resultado) {
@@ -218,7 +235,7 @@ public class Calculadora extends JFrame {
                 valor1 = Double.parseDouble(txtResultado.getText());
             }
             limpiarPantalla();
-            desactivarBotonOperacion();
+            desactivarBotonOperacion(this);
         }
         btnC.setEnabled(false);
     }
@@ -233,12 +250,12 @@ public class Calculadora extends JFrame {
             String btnTexto = boton.getText();
             getOperador(btnTexto);
             if (!existenErrores) {
-                activarBotonOperacion();
+                activarBotonOperacion(this);
             }
             btnC.setEnabled(true);
             if (txtResultado.getText().equals("No se puede dividir por 0")) {
                 btnC.setEnabled(false);
-                desactivarBotonOperacion();
+                desactivarBotonOperacion(this);
             }
         });
     }
@@ -257,9 +274,8 @@ public class Calculadora extends JFrame {
         if (existenErrores) {
             btnC.setEnabled(false);
             btnRaiz.setEnabled(false);
-            desactivarBotonOperacion();
+            desactivarBotonOperacion(this);
         }
-
     }
 
 
@@ -280,7 +296,7 @@ public class Calculadora extends JFrame {
                 if (valor2 == 0) {
                     txtResultado.setText(txtErrorDiv0);
                     existenErrores=true;
-                    desactivarBotonesTodos();
+                    desactivarBotonesTodos(this);
                     return;
                 } else {
                     resultado = valor1 / valor2;
@@ -290,11 +306,9 @@ public class Calculadora extends JFrame {
                 resultado = Math.pow(valor1, valor2);
                 break;
         }
-
         // Restablezco el "valor1" y muestro el resultado por pantalla
         valor1 = resultado; //Guardo este valor para futuribles operaciones
         txtResultado.setText(Double.toString(resultado));
-
         // Me aseguro de que devuelva números enteros en caso de devolver un número terminado en ".0"
         if (resultado % 1 == 0) {
             txtResultado.setText(Integer.toString((int) resultado));
@@ -304,77 +318,6 @@ public class Calculadora extends JFrame {
         calculoRealizado = true;
     }
 
-    // Hago una función para habilitar los botones de operación
-    private void activarBotonOperacion() {
-        btnSumar.setEnabled(true);
-        btnRestar.setEnabled(true);
-        btnMultiplicar.setEnabled(true);
-        btnDividir.setEnabled(true);
-        btnPotencia.setEnabled(true);
-    }
-
-    private void activarBotonesNum() {
-        btn1.setEnabled(true);
-        btn2.setEnabled(true);
-        btn3.setEnabled(true);
-        btn4.setEnabled(true);
-        btn5.setEnabled(true);
-        btn6.setEnabled(true);
-        btn7.setEnabled(true);
-        btn8.setEnabled(true);
-        btn9.setEnabled(true);
-        btn0.setEnabled(true);
-        btn00.setEnabled(true);
-    }
-
-    private void activarBotonesTodos() {
-        activarBotonOperacion();
-        activarBotonesOtros();
-        activarBotonesNum();
-    }
-
-    private void activarBotonesOtros() {
-        btnRaiz.setEnabled(true);
-        btnIgual.setEnabled(true);
-        btnPunto.setEnabled(true);
-        btnMasMenos.setEnabled(true);
-    }
-
-    // Hago una función para deshabilitar los botones de operación
-    private void desactivarBotonOperacion() {
-        btnSumar.setEnabled(false);
-        btnRestar.setEnabled(false);
-        btnMultiplicar.setEnabled(false);
-        btnDividir.setEnabled(false);
-        btnPotencia.setEnabled(false);
-    }
-
-    private void desactivarBotonesNum() {
-        btn1.setEnabled(false);
-        btn2.setEnabled(false);
-        btn3.setEnabled(false);
-        btn4.setEnabled(false);
-        btn5.setEnabled(false);
-        btn6.setEnabled(false);
-        btn7.setEnabled(false);
-        btn8.setEnabled(false);
-        btn9.setEnabled(false);
-        btn0.setEnabled(false);
-        btn00.setEnabled(false);
-    }
-
-    private void desactivarBotonesOtros() {
-        btnRaiz.setEnabled(false);
-        btnIgual.setEnabled(false);
-        btnPunto.setEnabled(false);
-        btnMasMenos.setEnabled(false);
-    }
-
-    private void desactivarBotonesTodos() {
-        desactivarBotonOperacion();
-        desactivarBotonesOtros();
-        desactivarBotonesNum();
-    }
 
     public void mostrar() {
         this.setVisible(true);
