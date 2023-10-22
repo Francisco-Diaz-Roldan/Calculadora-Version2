@@ -67,24 +67,33 @@ public class Calculadora extends JFrame {
         btn0.addActionListener(e -> {
             // Para poder escribir un solo "0" al principio
             String txtResultadoActual = txtResultado.getText();
-            // Compruebo que el resultado que aparece en pantalla esté vacío
-            if (txtResultadoActual.isEmpty()) {
-            reiniciarPantalla();
-            } else if (txtResultadoActual.equals("0")||txtResultadoActual.equals("00")) {
-                // Si el resultado que aparece en pantalla es "0", no añade otro "0"
-            } else {
-                // En cualquier otro caso se añade "0"
-                String btn0Text = txtResultado.getText() + btn0.getText();
-                txtResultado.setText(btn0Text);
+            if (txtResultadoActual.contains(".")){
+                // Compruebo que el resultado que aparece en pantalla esté vacío
+                if (txtResultadoActual.isEmpty()) {
+                    reiniciarPantalla();
+                } else if (txtResultadoActual.equals("0")||txtResultadoActual.equals("00")) {
+                    // Si el resultado que aparece en pantalla es "0", no añade otro "0"
+                } else {
+                    // En cualquier otro caso se añade "0"
+                    String btn0Text = txtResultado.getText() + btn0.getText();
+                    txtResultado.setText(btn0Text);
+                }
+            }else{
+                actualizarTxtResultado(CERO);
             }
+
         });
         btn00.addActionListener(e -> {
             String txtResultadoActual = txtResultado.getText();
             if (txtResultadoActual.isEmpty()){
                 reiniciarPantalla();
             }
-            if (!txtResultadoActual.isEmpty() && !txtResultadoActual.equals("0")) {
+            if (!txtResultadoActual.isEmpty() && !txtResultadoActual.equals("0") && !txtResultadoActual.equals("00")) {
                 actualizarTxtResultado("00");
+            } else if (txtResultadoActual.isEmpty() && txtResultadoActual.equals("00")){
+                reiniciarPantalla();
+            } {
+
             }
         });
         btn1.addActionListener(e -> {
@@ -164,8 +173,9 @@ public class Calculadora extends JFrame {
                 conversorDouble();
                 valor1 = resultado;
                 calculoRealizado = true;
+                btnC.setEnabled(true);
             }
-            btnC.setEnabled(true);
+            btnC.setEnabled(false);
         });
 
         btnAC.addActionListener(e -> {
@@ -192,16 +202,16 @@ public class Calculadora extends JFrame {
         });
 
         btnPunto.addActionListener(e -> {
-            if (txtResultado.getText().isEmpty()) {
+            String txtResultadoActual = txtResultado.getText();
+            if (txtResultadoActual.isEmpty() || txtResultadoActual.equals("0") || txtResultadoActual.equals("00")) {
                 txtResultado.setText("0.");
-            } else if (txtResultado.getText().contains(".")) {
-                btnPunto.setEnabled(false);
-            } else {
+            } else if (!txtResultadoActual.contains(".")) {
                 String btnPuntoText = txtResultado.getText() + btnPunto.getText();
                 txtResultado.setText(btnPuntoText);
             }
             btnPunto.setEnabled(true);
         });
+
     }
 
     private void calcularRaiz() {

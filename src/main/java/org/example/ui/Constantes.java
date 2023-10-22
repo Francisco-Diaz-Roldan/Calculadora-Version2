@@ -4,7 +4,6 @@ public class Constantes {
     public static final String ERROR_DIVISION_CERO ="No se puede dividir por 0";
     public static final String ERROR_RAIZ ="No se puede dividir por 0";
     public static final String CERO = "0";
-    public static final String DOBLE_CERO = "00";
     public static final String UNO = "1";
     public static final String DOS = "2";
     public static final String TRES = "3";
