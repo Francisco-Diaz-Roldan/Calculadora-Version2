@@ -131,7 +131,7 @@ public class Calculadora extends JFrame {
         btnRaiz.addActionListener(e -> {
             calcularRaiz();//Llamo al método que me permite hacer raices cuadradas
         });
-       //Configuro el boton de cambio de signo
+        //Configuro el boton de cambio de signo
         btnMasMenos.addActionListener(e -> {
             if (!txtResultado.getText().isEmpty() && !Objects.equals(txtResultado.getText(), "0")){
                 double num = Double.parseDouble(txtResultado.getText());
@@ -215,28 +215,7 @@ public class Calculadora extends JFrame {
         });
     }
     //Creo los métodos de la clase Calculadora
-    //Creo el método para poder calcular la raiz cuadrada de un numero
-    private void calcularRaiz() {
-        String txtResultadoActual = txtResultado.getText();
-        if (!txtResultadoActual.isEmpty()) {
-            double numero = Double.parseDouble(txtResultadoActual);
-            double resultado = Math.sqrt(numero);
-            if (txtResultadoActual.contains("-")){//En caso de que el numero sea negativo
-                txtResultado.setText(ERROR_RAIZ);//Se imprime el mensaje de error por pantalla
-                existenErrores=true;//Activo la variable de control de errores
-                btnC.setEnabled(false);//Me aseguro de que btnC no se vuelve a activar
-                desactivarBotonesTodos(this);
-            }else{//En cualquier otro caso hace las raices cuadradas con normalidad
-                // Comprueba a ver si el resultado es un número entero
-                if (resultado == (int) resultado) {
-                    txtResultado.setText(Integer.toString((int) resultado));
-                } else {
-                    txtResultado.setText(Double.toString(resultado));
-                }
-                calculoRealizado = true;
-            }
-        }
-    }
+
     //Creo el metodo reiniciarPantalla que hace que el texto sea "0"
     private void reiniciarPantalla() {
         txtResultado.setText("0");
@@ -268,24 +247,22 @@ public class Calculadora extends JFrame {
             btnRaiz.setEnabled(false);
         }
     }
-
     // Configuro el boton setOperacion
     private void setBotonOperacion(JButton boton) {
         boton.addActionListener(e -> {
             String btnTexto = boton.getText();
-            getOperador(btnTexto);
-            if (!existenErrores) {
+            getOperador(btnTexto);//Le añado el operador correspondiente
+            if (!existenErrores){ //En caso de que no existan errores actúa con normalidad
                 activarBotonOperacion(this);
             }
             btnC.setEnabled(true);
-            if (txtResultado.getText().equals(ERROR_DIVISION_CERO)) {
-                btnC.setEnabled(false);
-                desactivarBotonOperacion(this);
+            if (txtResultado.getText().equals(ERROR_DIVISION_CERO)) {//En caso contrario imprime el error por pantalla
+                desactivarBotonOperacion(this);//Desactiva todos los botones
+                btnC.setEnabled(false);//Aseguro que el btnC esté inactivo
             }
         });
     }
-    // Consigo el operador cuando le doy al botón de operación
-
+    //Configuro el botn getOperador, que toma el texto de los botones como argumento
     private void getOperador(String btnTexto) {
         operador = btnTexto.charAt(0);
         if (!txtResultado.getText().equals(ERROR_DIVISION_CERO) &&
@@ -300,9 +277,7 @@ public class Calculadora extends JFrame {
         }
         btnC.setEnabled(false);
     }
-    // Creo una función para actualizar txtResultado en caso de que se introduzca un número tras el 0 predeterminado,
-
-    // Hago un método para que el btnIgual no esté tan cargado
+    //Configuro el metodo que realiza todas las operaciones, a excepcion de la raiz cuadrada
     private void realizarOperacion(double valor1, double valor2, char operador) {
         btnC.setEnabled(false);
         switch (operador) {
@@ -330,6 +305,28 @@ public class Calculadora extends JFrame {
         // Me aseguro de que devuelva números enteros en caso de devolver un número terminado en ".0"
         conversorDouble();
     }
+    //Creo el método para poder calcular la raiz cuadrada de un número
+    private void calcularRaiz() {
+        String txtResultadoActual = txtResultado.getText();
+        if (!txtResultadoActual.isEmpty()) {
+            double numero = Double.parseDouble(txtResultadoActual);
+            double resultado = Math.sqrt(numero);
+            if (txtResultadoActual.contains("-")){//En caso de que el numero sea negativo
+                txtResultado.setText(ERROR_RAIZ);//Se imprime el mensaje de error por pantalla
+                existenErrores=true;//Activo la variable de control de errores
+                btnC.setEnabled(false);//Me aseguro de que btnC no se vuelve a activar
+                desactivarBotonesTodos(this);
+            }else{//En cualquier otro caso hace las raices cuadradas con normalidad
+                // Comprueba a ver si el resultado es un número entero
+                if (resultado == (int) resultado) {
+                    txtResultado.setText(Integer.toString((int) resultado));
+                } else {
+                    txtResultado.setText(Double.toString(resultado));
+                }
+                calculoRealizado = true;
+            }
+        }
+    }
     private void conversorDouble() {
         if (resultado % 1 == 0) {
             txtResultado.setText(Integer.toString((int) resultado));
@@ -337,7 +334,8 @@ public class Calculadora extends JFrame {
             txtResultado.setText(Double.toString(resultado));
         }
     }
-
+    //Creo los métodos para mostrar la ventana por pantalla
+    //Configuro el método configurarVentana, que configura con las especificaciones de la misma
     private void configurarVentana() {
         this.setContentPane(Panel1);
         //this.pack();
@@ -347,7 +345,7 @@ public class Calculadora extends JFrame {
         setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
-
+    //Configuro el método mostrar para que se muestre en pantalla
     public void mostrar() {
         this.setVisible(true);
     }
