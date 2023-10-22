@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Continúo con el JAVADOC" />
+    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Continúo con el JAVADOC de las Clases Main, Calculadora, BotonManager y Constantes finalizadas." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,7 +94,7 @@
       <workItem from="1697984880639" duration="1821000" />
       <workItem from="1697986830312" duration="41000" />
       <workItem from="1697987570069" duration="1351000" />
-      <workItem from="1697988935744" duration="3471000" />
+      <workItem from="1697988935744" duration="3783000" />
     </task>
     <task id="LOCAL-00001" summary="Están hechos los botones numéricos, faltan los operandos">
       <option name="closed" value="true" />
@@ -472,7 +472,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697992386491</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Continúo con el JAVADOC de las Clases Main, Calculadora, BotonManager y Constantes finalizadas.">
+      <option name="closed" value="true" />
+      <created>1697992553869</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1697992553869</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,7 +498,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Hacer el javadoc&#10; He conseguido solucionar los erores con las operaciones haciendo enable en setBtnOperacion &#10;Tengo que hacer que se tenga que seleccionar previamente un numero antes de poner el operador potencia&#10;&#10;PetA cuando operas despues del texto" />
     <MESSAGE value="Hacer el javadoc&#10; He conseguido solucionar los erores con las operaciones haciendo enable en setBtnOperacion &#10;&#10;&#10;PetA cuando operas despues del texto" />
     <MESSAGE value="Hacer el javadoc&#10; He conseguido solucionar los erores con las operaciones haciendo enable en setBtnOperacion &#10;&#10;He conseguido que C funcione tras darle a un operando de nuevo&#10;PetA cuando operas despues del texto" />
     <MESSAGE value="Hacer el javadoc&#10;&#10;&#10;PetA cuando operas despues del texto" />
@@ -515,6 +522,7 @@
     <MESSAGE value="Sigo comentando metodos y optimizando codigo, sigo arreglando otros fallos menores FALTA EL JAVADOC" />
     <MESSAGE value="Sigo comentando y optimizando codigo, sigo arreglando otros fallos menores FALTA EL JAVADOC" />
     <MESSAGE value="Continúo con el JAVADOC" />
-    <option name="LAST_COMMIT_MESSAGE" value="Continúo con el JAVADOC" />
+    <MESSAGE value="Continúo con el JAVADOC de las Clases Main, Calculadora, BotonManager y Constantes finalizadas." />
+    <option name="LAST_COMMIT_MESSAGE" value="Continúo con el JAVADOC de las Clases Main, Calculadora, BotonManager y Constantes finalizadas." />
   </component>
 </project>
