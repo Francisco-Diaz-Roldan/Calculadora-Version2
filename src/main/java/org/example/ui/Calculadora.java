@@ -33,6 +33,7 @@ public class Calculadora extends JFrame {
     protected JButton btnAC;
     protected JButton btnPunto;
     private double valor1 = 0.0;
+    private double valor2 = 0.0;
     private double resultado = 0.0;
     private char operador;
 
@@ -66,22 +67,24 @@ public class Calculadora extends JFrame {
         btn0.addActionListener(e -> {
             // Para poder escribir un solo "0" al principio
             String txtResultadoActual = txtResultado.getText();
-            // Se comprueba que el resultado que aparece en pantalla esté vacío
+            // Compruebo que el resultado que aparece en pantalla esté vacío
             if (txtResultadoActual.isEmpty()) {
-                txtResultado.setText("0");
-            } else if (txtResultadoActual.equals("0")) {
-                // Si el resultado que aparece en pantalla es "0", no deja que se añada otro
+            reiniciarPantalla();
+            } else if (txtResultadoActual.equals("0")||txtResultadoActual.equals("00")) {
+                // Si el resultado que aparece en pantalla es "0", no añade otro "0"
             } else {
                 // En cualquier otro caso se añade "0"
                 String btn0Text = txtResultado.getText() + btn0.getText();
                 txtResultado.setText(btn0Text);
             }
         });
-
         btn00.addActionListener(e -> {
             String txtResultadoActual = txtResultado.getText();
-            if (!txtResultadoActual.equals(CERO) && !calculoRealizado) {
-                actualizarTxtResultado(DOBLE_CERO);
+            if (txtResultadoActual.isEmpty()){
+                reiniciarPantalla();
+            }
+            if (!txtResultadoActual.isEmpty() && !txtResultadoActual.equals("0")) {
+                actualizarTxtResultado("00");
             }
         });
         btn1.addActionListener(e -> {
@@ -144,7 +147,14 @@ public class Calculadora extends JFrame {
             if (operador == '\0') {// No hace nada en caso de que no se seleccione un operador
                 return;
             }
-            double valor2 = Double.parseDouble(txtResultado.getText()); // Declaro el segundo operando
+            valor2 = Double.parseDouble(txtResultado.getText()); // Declaro el segundo operando
+            if (valor2 == 0 ) {
+                txtResultado.setText("No se puede dividir por 0");
+                existenErrores=true;
+                BotonManager.desactivarBotonesTodos(this);
+                btnC.setEnabled(false);
+                return;
+            }
             realizarOperacion(valor1, valor2, operador);
             operador = '\0'; // Se reinicia el operador
             if (!existenErrores){
@@ -159,11 +169,11 @@ public class Calculadora extends JFrame {
         btnAC.addActionListener(e -> {
             valor1 = 0;
             resultado = 0;
-            limpiarPantalla();
             operador = '\0'; // Se reinicia el operador
             btnC.setEnabled(true);
             existenErrores=false;
             activarBotonesTodos(this);
+            reiniciarPantalla();
         });
 
         btnC.addActionListener(e -> {
@@ -191,10 +201,6 @@ public class Calculadora extends JFrame {
         });
     }
 
-    private void reiniciarPantalla() {
-        txtResultado.setText("0");
-    }
-
     private void calcularRaiz() {
         String txtResultadoActual = txtResultado.getText();
         if (!txtResultadoActual.isEmpty()) {
@@ -220,7 +226,6 @@ public class Calculadora extends JFrame {
 
     // Métodos
     // Consigo el operador cuando le doy al botón de operación
-
     private void getOperador(String btnTexto) {
         operador = btnTexto.charAt(0);
         if (!txtResultado.getText().equals("No se puede dividir por 0") &&
@@ -234,6 +239,10 @@ public class Calculadora extends JFrame {
             desactivarBotonOperacion(this);
         }
         btnC.setEnabled(false);
+    }
+
+    private void reiniciarPantalla() {
+        txtResultado.setText("0");
     }
     private void limpiarPantalla() {
         txtResultado.setText("");
@@ -259,7 +268,7 @@ public class Calculadora extends JFrame {
     // en caso de que se haya hecho raiz de un número negativo o si se divide por 0
 
     private void actualizarTxtResultado(String num) {
-        if (txtResultado.getText().equals(CERO) || calculoRealizado) {
+        if (txtResultado.getText().equals("0") || calculoRealizado) {
             txtResultado.setText(num);
             calculoRealizado = false; // Reiniciar el estado de cálculo de la raíz
             btnC.setEnabled(true);
@@ -268,9 +277,9 @@ public class Calculadora extends JFrame {
             txtResultado.setText(texto);
         }
         if (existenErrores) {
+            desactivarBotonOperacion(this);
             btnC.setEnabled(false);
             btnRaiz.setEnabled(false);
-            desactivarBotonOperacion(this);
         }
     }
 
@@ -288,14 +297,7 @@ public class Calculadora extends JFrame {
                 resultado = valor1 * valor2;
                 break;
             case '÷':
-                if (valor2 == 0) {
-                    txtResultado.setText("No se puede dividir por 0");
-                    existenErrores=true;
-                    BotonManager.desactivarBotonesTodos(this);
-                    return;
-                } else {
-                    resultado = valor1 / valor2;
-                }
+                resultado = valor1 / valor2;
                 break;
             case '^':
                 resultado = Math.pow(valor1, valor2);
