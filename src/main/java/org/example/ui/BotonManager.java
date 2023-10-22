@@ -1,6 +1,12 @@
 package org.example.ui;
 
+import javax.swing.*;
+
+import static org.example.ui.Constantes.ERROR_DIVISION_CERO;
+
 public class BotonManager {
+
+
     // Creo funciones para activar los botones de forma agrupada
     public static void activarBotonOperacion(Calculadora calculadora) {
         calculadora.btnSumar.setEnabled(true);
