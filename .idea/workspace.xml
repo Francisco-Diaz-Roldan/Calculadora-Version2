@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Sigo comentando y optimizando codigo, sigo arreglando otros fallos menores FALTA EL JAVADOC">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/Calculadora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/Calculadora.java" afterDir="false" />
-    </list>
+    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Continúo con el JAVADOC" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,7 +94,7 @@
       <workItem from="1697984880639" duration="1821000" />
       <workItem from="1697986830312" duration="41000" />
       <workItem from="1697987570069" duration="1351000" />
-      <workItem from="1697988935744" duration="3139000" />
+      <workItem from="1697988935744" duration="3471000" />
     </task>
     <task id="LOCAL-00001" summary="Están hechos los botones numéricos, faltan los operandos">
       <option name="closed" value="true" />
@@ -460,7 +456,23 @@
       <option name="project" value="LOCAL" />
       <updated>1697990721985</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Continúo con el JAVADOC">
+      <option name="closed" value="true" />
+      <created>1697992147832</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1697992147832</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Continúo con el JAVADOC">
+      <option name="closed" value="true" />
+      <created>1697992386491</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1697992386491</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -478,7 +490,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Calculadora terminada." />
     <MESSAGE value="Hacer el javadoc&#10; He conseguido solucionar los erores con las operaciones haciendo enable en setBtnOperacion &#10;Tengo que hacer que se tenga que seleccionar previamente un numero antes de poner el operador potencia&#10;&#10;PetA cuando operas despues del texto" />
     <MESSAGE value="Hacer el javadoc&#10; He conseguido solucionar los erores con las operaciones haciendo enable en setBtnOperacion &#10;&#10;&#10;PetA cuando operas despues del texto" />
     <MESSAGE value="Hacer el javadoc&#10; He conseguido solucionar los erores con las operaciones haciendo enable en setBtnOperacion &#10;&#10;He conseguido que C funcione tras darle a un operando de nuevo&#10;PetA cuando operas despues del texto" />
@@ -503,6 +514,7 @@
     <MESSAGE value="Sigo haciendo metodos y optimizando codigo, sigo arreglando otros fallos menores FALTA EL JAVADOC" />
     <MESSAGE value="Sigo comentando metodos y optimizando codigo, sigo arreglando otros fallos menores FALTA EL JAVADOC" />
     <MESSAGE value="Sigo comentando y optimizando codigo, sigo arreglando otros fallos menores FALTA EL JAVADOC" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sigo comentando y optimizando codigo, sigo arreglando otros fallos menores FALTA EL JAVADOC" />
+    <MESSAGE value="Continúo con el JAVADOC" />
+    <option name="LAST_COMMIT_MESSAGE" value="Continúo con el JAVADOC" />
   </component>
 </project>
