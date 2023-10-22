@@ -5,40 +5,142 @@ import java.util.Objects;
 import static org.example.ui.BotonManager.*;
 import static org.example.ui.Constantes.*;
 
-public class Calculadora extends JFrame {
+/**
+ * Esta clase representa una calculadora con su propia interfaz de usuario.
+ * Permite la realización de operaciones matemáticas y muestra los resultados por pantalla
+ */
+
+ public class Calculadora extends JFrame {
     //Declaro las variables que va a utilizar la clase Calculadora
+    /**
+     * JTextField se utilizaa para mostrar el resultado de las operaciones en la interfaz de usuario.
+     */
     private JTextField txtResultado;
+    /**
+     * JPanel principal con la interfaz de la calculadora.
+     */
     private JPanel Panel;
+    /**
+     * JPanel adicional que contiene elementos extra en la interfaz.
+     */
     private JPanel Panel1;
+    /**
+     * Botón 0.
+     */
     protected JButton btn0;
+    /**
+     * Botón 00.
+     */
     protected JButton btn00;
+    /**
+     * Botón 1.
+     */
     protected JButton btn1;
+    /**
+     * Botón 2.
+     */
     protected JButton btn2;
+    /**
+     * Botón 3.
+     */
     protected JButton btn3;
+    /**
+     * Botón 4.
+     */
     protected JButton btn4;
+    /**
+     * Botón 5.
+     */
     protected JButton btn5;
+    /**
+     * Botón 6.
+     */
     protected JButton btn6;
+    /**
+     * Botón 7.
+     */
     protected JButton btn7;
+    /**
+     * Botón 8.
+     */
     protected JButton btn8;
+    /**
+     * Botón 9.
+     */
     protected JButton btn9;
+    /**
+     * Botón de suma.
+     */
     protected JButton btnSumar;
+    /**
+     * Botón de resta.
+     */
     protected JButton btnRestar;
+    /**
+     * Botón de multiplicar.
+     */
     protected JButton btnMultiplicar;
+    /**
+     * Botón de dividir.
+     */
     protected JButton btnDividir;
+    /**
+     * Botón de cambio de signo.
+     */
     protected JButton btnMasMenos;
+    /**
+     * Botón de potencia.
+     */
     protected JButton btnPotencia;
+    /**
+     * Botón de raiz.
+     */
     protected JButton btnRaiz;
+    /**
+     * Botón de igualar.
+     */
     protected JButton btnIgual;
+    /**
+     * Botón C.
+     */
     protected JButton btnC;
+    /**
+     * Botón AC.
+     */
     protected JButton btnAC;
+    /**
+     * Botón punto.
+     */
     protected JButton btnPunto;
+    /**
+     * Valor valor1.
+     */
     private double valor1 = 0.0;
+    /**
+     * Valor valor2.
+     */
     private double valor2 = 0.0;
+    /**
+     * Valor resultado.
+     */
     private double resultado = 0.0;
+    /**
+     * Caracter operador.
+     */
     private char operador;
+    /**
+     * Booleano para la detección de errores.
+     */
     private boolean existenErrores;
+    /**
+     * Booleano para la detección de cálculos realizados.
+     */
     private boolean calculoRealizado = false;
 
+    /**
+     * Constructor de la clase Calculadora.
+     * Configura la vista de la ventana Calculadora y sus componentes.
+     */
     public Calculadora() {
         // Configuro la vista de la ventana Calculadora
         configurarVentana();
@@ -124,6 +226,7 @@ public class Calculadora extends JFrame {
 
         // Configuro los botones operacionales
         setBotonOperacion(btnSumar);
+
         setBotonOperacion(btnRestar);
         setBotonOperacion(btnMultiplicar);
         setBotonOperacion(btnDividir);
@@ -206,7 +309,7 @@ public class Calculadora extends JFrame {
                 String txtResultadoActual = txtResultado.getText();
                 if (txtResultadoActual.isEmpty() || txtResultadoActual.equals("0") || txtResultadoActual.equals("00")) {
                     txtResultado.setText("0.");// En este caso tras pulsar sobre el boton se escribe "0."
-                } else if (!txtResultadoActual.contains(".")) {// En caso de que no haya un "." lo añade
+                } else if (!txtResultadoActual.contains(".")) {// En caso de que no haya "." lo añade
                     String btnPuntoText = txtResultado.getText() + btnPunto.getText();
                     txtResultado.setText(btnPuntoText);
                 }
@@ -215,16 +318,23 @@ public class Calculadora extends JFrame {
         });
     }
     // Creo los métodos de la clase Calculadora
-
-    // Creo el metodo reiniciarPantalla que hace que el texto sea "0"
+    /**
+     * Reinicia la pantalla de la calculadora, estableciendo el valor del texto en "0".
+     */
     private void reiniciarPantalla() {
         txtResultado.setText("0");
     }
-    // Creo el metodo limpiarPantalla que hace que el texto esté vacío
+    /**
+     * Establece el campo de texto de la calculadora en una cadena de texto vacía, limpiando la pantalla.
+     */
     private void limpiarPantalla() {
         txtResultado.setText("");
     }
-    // Creo el método actualizarTxtResultado para actualizar la variable txtResultado
+    /**
+     * Actualiza el campo de texto de la calculadora con el valor proporcionado.
+     *
+     * @param num El número que se va a mostrar por pantalla.
+     */
     private void actualizarTxtResultado(String num) {
         if (txtResultado.getText().equals("0") || calculoRealizado) {
             if (num.equals(".")) {
@@ -247,7 +357,11 @@ public class Calculadora extends JFrame {
             btnRaiz.setEnabled(false);
         }
     }
-    // Configuro el boton setOperacion
+    /**
+     * Configura un botón de operación para que realice la operación correspondiente cuando se pulse en un operador.
+     *
+     * @param boton El botón de operación.
+     */
     private void setBotonOperacion(JButton boton) {
         boton.addActionListener(e -> {
             String btnTexto = boton.getText();
@@ -262,7 +376,11 @@ public class Calculadora extends JFrame {
             }
         });
     }
-    // Configuro el botn getOperador, que toma el texto de los botones como argumento
+    /**
+     * Obtiene el operador a partir del texto de un botón y realiza las operaciones correspondientes.
+     *
+     * @param btnTexto El texto del botón que contiene el operador.
+     */
     private void getOperador(String btnTexto) {
         operador = btnTexto.charAt(0);
         if (!txtResultado.getText().equals(ERROR_DIVISION_CERO) &&
@@ -278,6 +396,13 @@ public class Calculadora extends JFrame {
         btnC.setEnabled(false);
     }
     // Configuro el metodo que realiza todas las operaciones, a excepcion de la raiz cuadrada
+    /**
+     * Realiza  todas las operaciones, a excepcion de la raiz cuadrada, utilizando el operador y los valores actuales.
+     *
+     * @param valor1    El primer valor numérico de la operación.
+     * @param valor2    El segundo valor numérico de la operación.
+     * @param operador  El operador matemático.
+     */
     private void realizarOperacion(double valor1, double valor2, char operador) {
         btnC.setEnabled(false);
         switch (operador) {
@@ -305,7 +430,9 @@ public class Calculadora extends JFrame {
         // Me aseguro de que devuelva números enteros en caso de devolver un número terminado en ".0"
         conversorDouble();
     }
-    // Creo el método para poder calcular la raiz cuadrada de un número
+    /**
+     * Calcula la raíz cuadrada de un número y actualiza la pantalla con el resultado.
+     */
     private void calcularRaiz() {
         String txtResultadoActual = txtResultado.getText();
         if (!txtResultadoActual.isEmpty()) {
@@ -327,6 +454,9 @@ public class Calculadora extends JFrame {
             }
         }
     }
+    /**
+     * Convierte el resultado actual en un número entero si es necesario.
+     */
     private void conversorDouble() {
         if (resultado % 1 == 0) {
             txtResultado.setText(Integer.toString((int) resultado));
@@ -335,7 +465,9 @@ public class Calculadora extends JFrame {
         }
     }
     // Creo los métodos para mostrar la ventana por pantalla
-    // Configuro el método configurarVentana, que configura con las especificaciones de la misma
+    /**
+     * Configura el tamaño y el título de la ventana de la calculadora.
+     */
     private void configurarVentana() {
         this.setContentPane(Panel1);
         //this.pack();
@@ -345,7 +477,9 @@ public class Calculadora extends JFrame {
         setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
-    // Configuro el método mostrar para que se muestre en pantalla
+    /**
+     * Muestra la ventana de la calculadora en pantalla.
+     */
     public void mostrar() {
         this.setVisible(true);
     }
