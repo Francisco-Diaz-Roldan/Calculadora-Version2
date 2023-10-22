@@ -200,12 +200,17 @@ public class Calculadora extends JFrame {
         });
 
         btnPunto.addActionListener(e -> {
-            String txtResultadoActual = txtResultado.getText();
-            if (txtResultadoActual.isEmpty() || txtResultadoActual.equals("0") || txtResultadoActual.equals("00")) {
+            if (calculoRealizado) {
                 txtResultado.setText("0.");
-            } else if (!txtResultadoActual.contains(".")) {
-                String btnPuntoText = txtResultado.getText() + btnPunto.getText();
-                txtResultado.setText(btnPuntoText);
+                calculoRealizado = false;
+            } else {
+                String txtResultadoActual = txtResultado.getText();
+                if (txtResultadoActual.isEmpty() || txtResultadoActual.equals("0") || txtResultadoActual.equals("00")) {
+                    txtResultado.setText("0.");
+                } else if (!txtResultadoActual.contains(".")) {
+                    String btnPuntoText = txtResultado.getText() + btnPunto.getText();
+                    txtResultado.setText(btnPuntoText);
+                }
             }
             btnPunto.setEnabled(true);
         });
@@ -280,9 +285,16 @@ public class Calculadora extends JFrame {
 
     private void actualizarTxtResultado(String num) {
         if (txtResultado.getText().equals("0") || calculoRealizado) {
-            txtResultado.setText(num);
+            if (num.equals(".")) {
+                txtResultado.setText("0.");
+            } else {
+                txtResultado.setText(num);
+            }
             calculoRealizado = false; // Reiniciar el estado de cálculo de la raíz
             btnC.setEnabled(true);
+        } else if (txtResultado.getText().endsWith(".") && num.equals(".")) {
+            // Si ya hay un punto y se agrega otro punto, mantén el valor actual
+            return;
         } else {
             String texto = txtResultado.getText() + num;
             txtResultado.setText(texto);
