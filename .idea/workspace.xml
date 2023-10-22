@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Sigo haciendo metodos y optimizando codigo,he arreglado otros fallos menores FALTA EL JAVADOC">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/Calculadora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/Calculadora.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/Constantes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/Constantes.java" afterDir="false" />
-    </list>
+    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Sigo haciendo metodos y optimizando codigo,he arreglado otros fallos menores FALTA EL JAVADOC" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,7 +90,7 @@
       <workItem from="1697969956889" duration="3843000" />
       <workItem from="1697973822860" duration="3682000" />
       <workItem from="1697977523666" duration="714000" />
-      <workItem from="1697978255578" duration="820000" />
+      <workItem from="1697978255578" duration="1114000" />
     </task>
     <task id="LOCAL-00001" summary="Están hechos los botones numéricos, faltan los operandos">
       <option name="closed" value="true" />
@@ -408,7 +404,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697978269498</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Sigo haciendo metodos y optimizando codigo,he arreglado otros fallos menores FALTA EL JAVADOC">
+      <option name="closed" value="true" />
+      <created>1697984860916</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1697984860916</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
