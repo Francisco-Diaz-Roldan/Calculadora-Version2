@@ -148,26 +148,29 @@ public class Calculadora extends JFrame {
                 return;
             }
             valor2 = Double.parseDouble(txtResultado.getText()); // Declaro el segundo operando
-            if (valor2 == 0 ) {
+            if (valor2 == 0 && operador=='÷') {
                 txtResultado.setText("No se puede dividir por 0");
                 existenErrores=true;
                 BotonManager.desactivarBotonesTodos(this);
                 btnC.setEnabled(false);
                 return;
+            }else{
+                realizarOperacion(valor1, valor2, operador);
+                operador = '\0'; // Se reinicia el operador
+                if (!existenErrores){
+                    // Activa los botones de operación
+                    BotonManager.activarBotonOperacion(this);
+                }
+                conversorDouble();
+                valor1 = resultado;
+                calculoRealizado = true;
             }
-            realizarOperacion(valor1, valor2, operador);
-            operador = '\0'; // Se reinicia el operador
-            if (!existenErrores){
-                // Activa los botones de operación
-                BotonManager.activarBotonOperacion(this);
-            }
-            conversorDouble();
-            valor1 = resultado;
-            calculoRealizado = true;
+            btnC.setEnabled(true);
         });
 
         btnAC.addActionListener(e -> {
             valor1 = 0;
+            valor2 =0;
             resultado = 0;
             operador = '\0'; // Se reinicia el operador
             btnC.setEnabled(true);
