@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Refactorizando.&#10;Arregldps los botones 0 y 00.&#10;Ha vuelto a dividir por 0&#10;Voy a hacer una clase Constantes.&#10;Puede que haga una clase Operaciones desde la que hacerlas.&#10;Ya vuelve a funcionar btnC en csao de raizNegativa&#10;&#10;Unificar formato de los 2 tipos de errores&#10;Hacer raiz n de un numero en lugar de la raiz cuadrada&#10;Sigohaciendo metodos y optimizando codigo">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/Calculadora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/Calculadora.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/Constantes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/Constantes.java" afterDir="false" />
-    </list>
+    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Sigo haciendo metodos y optimizando codigo,he arreglado otros fallos menores FALTA EL JAVADOC" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,7 +87,7 @@
       <workItem from="1697909466924" duration="3229000" />
       <workItem from="1697913112488" duration="5773000" />
       <workItem from="1697918920910" duration="13075000" />
-      <workItem from="1697969956889" duration="3652000" />
+      <workItem from="1697969956889" duration="3843000" />
     </task>
     <task id="LOCAL-00001" summary="Están hechos los botones numéricos, faltan los operandos">
       <option name="closed" value="true" />
@@ -357,7 +353,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697971916224</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Sigo haciendo metodos y optimizando codigo,he arreglado otros fallos menores FALTA EL JAVADOC">
+      <option name="closed" value="true" />
+      <created>1697973764908</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1697973764908</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,7 +379,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Vuelven a funcionar los botones AC y +/-, falta optimizar aún más y sacar más fallos." />
     <MESSAGE value="Calculadora terminada, ya cuando se pulsa 2 veces seguidas sobre el btnRaiz o sobre el btnPotencia ya no peta" />
     <MESSAGE value="Ha dado errores a la hora de elevar" />
     <MESSAGE value="Solucionado el problema de las potencias." />
@@ -400,7 +403,8 @@
     <MESSAGE value="Refactorizando.&#10;Voy a hacer una clase Constantes.&#10;Puede que haga una clase Operaciones desde la que hacerlas.&#10;Ya vuelve a funcionar btnC en csao de raizNegativa&#10;&#10;Unificar formato de los 2 tipos de errores&#10;Hacer raiz n de un numero en lugar de la raiz cuadrada&#10;Sigohaciendo metodos y optimizando codigo" />
     <MESSAGE value="Refactorizando.&#10;Arreglar los 0 y 00.&#10;Voy a hacer una clase Constantes.&#10;Puede que haga una clase Operaciones desde la que hacerlas.&#10;Ya vuelve a funcionar btnC en csao de raizNegativa&#10;&#10;Unificar formato de los 2 tipos de errores&#10;Hacer raiz n de un numero en lugar de la raiz cuadrada&#10;Sigohaciendo metodos y optimizando codigo" />
     <MESSAGE value="Refactorizando.&#10;Arregldps los botones 0 y 00.&#10;Ha vuelto a dividir por 0&#10;Voy a hacer una clase Constantes.&#10;Puede que haga una clase Operaciones desde la que hacerlas.&#10;Ya vuelve a funcionar btnC en csao de raizNegativa&#10;&#10;Unificar formato de los 2 tipos de errores&#10;Hacer raiz n de un numero en lugar de la raiz cuadrada&#10;Sigohaciendo metodos y optimizando codigo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactorizando.&#10;Arregldps los botones 0 y 00.&#10;Ha vuelto a dividir por 0&#10;Voy a hacer una clase Constantes.&#10;Puede que haga una clase Operaciones desde la que hacerlas.&#10;Ya vuelve a funcionar btnC en csao de raizNegativa&#10;&#10;Unificar formato de los 2 tipos de errores&#10;Hacer raiz n de un numero en lugar de la raiz cuadrada&#10;Sigohaciendo metodos y optimizando codigo" />
+    <MESSAGE value="Sigo haciendo metodos y optimizando codigo,he arreglado otros fallos menores FALTA EL JAVADOC" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sigo haciendo metodos y optimizando codigo,he arreglado otros fallos menores FALTA EL JAVADOC" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
