@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Continúo con el JAVADOC de las Clases Main, Calculadora, BotonManager y Constantes finalizadas.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Proyecto finalizado." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,15 +95,7 @@
       <workItem from="1697986830312" duration="41000" />
       <workItem from="1697987570069" duration="1351000" />
       <workItem from="1697988935744" duration="4508000" />
-      <workItem from="1697993834654" duration="534000" />
-    </task>
-    <task id="LOCAL-00001" summary="Están hechos los botones numéricos, faltan los operandos">
-      <option name="closed" value="true" />
-      <created>1697704882661</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1697704882661</updated>
+      <workItem from="1697993834654" duration="577000" />
     </task>
     <task id="LOCAL-00002" summary="Están hechos los botones y algunas funciones para optimizar un poco el codigo, falta optimizar aún más y sacar más fallos.">
       <option name="closed" value="true" />
@@ -492,7 +481,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697992860141</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Continúo con el JAVADOC de las Clases Main, Calculadora, BotonManager y Constantes finalizadas.">
+      <option name="closed" value="true" />
+      <created>1697994391549</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1697994391550</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -510,7 +507,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Hacer el javadoc&#10; He conseguido solucionar los erores con las operaciones haciendo enable en setBtnOperacion &#10;&#10;&#10;PetA cuando operas despues del texto" />
     <MESSAGE value="Hacer el javadoc&#10; He conseguido solucionar los erores con las operaciones haciendo enable en setBtnOperacion &#10;&#10;He conseguido que C funcione tras darle a un operando de nuevo&#10;PetA cuando operas despues del texto" />
     <MESSAGE value="Hacer el javadoc&#10;&#10;&#10;PetA cuando operas despues del texto" />
     <MESSAGE value="Hacer el javadoc&#10;Hecho que se desactiven C, ^ y raiz al hacer una raiz negativa&#10;&#10;PetA cuando operas despues del texto" />
@@ -535,6 +531,7 @@
     <MESSAGE value="Sigo comentando y optimizando codigo, sigo arreglando otros fallos menores FALTA EL JAVADOC" />
     <MESSAGE value="Continúo con el JAVADOC" />
     <MESSAGE value="Continúo con el JAVADOC de las Clases Main, Calculadora, BotonManager y Constantes finalizadas." />
-    <option name="LAST_COMMIT_MESSAGE" value="Continúo con el JAVADOC de las Clases Main, Calculadora, BotonManager y Constantes finalizadas." />
+    <MESSAGE value="Proyecto finalizado." />
+    <option name="LAST_COMMIT_MESSAGE" value="Proyecto finalizado." />
   </component>
 </project>
