@@ -56,7 +56,7 @@ public class Calculadora extends JFrame {
         reiniciarPantalla(); // Establezco "0" como valor predeterminado en la calculadora
 
         // Configuro los botones numéricos
-        //Configuro el boton0
+        // Configuro el boton0
         btn0.addActionListener(e -> {
             String txtResultadoActual = txtResultado.getText();
             if (txtResultadoActual.contains(".")){
@@ -73,51 +73,51 @@ public class Calculadora extends JFrame {
             }
 
         });
-        //Configuro el boton00
+        // Configuro el boton00
         btn00.addActionListener(e -> {
             String txtResultadoActual = txtResultado.getText();
             if (txtResultadoActual.isEmpty()){
-                reiniciarPantalla();//Para no escribir "00" en lugar de "0" en caso de que no haya nada en pantalla
+                reiniciarPantalla();// Para no escribir "00" en lugar de "0" en caso de que no haya nada en pantalla
             }//Para que escriba "00" en lugar de 0
             if (!txtResultadoActual.isEmpty() && !txtResultadoActual.equals("0") && !txtResultadoActual.equals("00")) {
                 actualizarTxtResultado("00");
             } else if (txtResultadoActual.isEmpty() && txtResultadoActual.equals("00")){
-                reiniciarPantalla();//Para no escribir "00" en lugar de "0" en caso de que no haya nada en pantalla
+                reiniciarPantalla();// Para no escribir "00" en lugar de "0" en caso de que no haya nada en pantalla
             }
         });
-        //Configuro el boton1
+        // Configuro el boton1
         btn1.addActionListener(e -> {
             actualizarTxtResultado(UNO);
         });
-        //Configuro el boton2
+        // Configuro el boton2
         btn2.addActionListener(e -> {
             actualizarTxtResultado(DOS);
         });
-        //Configuro el boton3
+        // Configuro el boton3
         btn3.addActionListener(e -> {
             actualizarTxtResultado(TRES);
         });
-        //Configuro el boton4
+        // Configuro el boton4
         btn4.addActionListener(e -> {
             actualizarTxtResultado(CUATRO);
         });
-        //Configuro el boton5
+        // Configuro el boton5
         btn5.addActionListener(e -> {
             actualizarTxtResultado(CINCO);
         });
-        //Configuro el boton6
+        // Configuro el boton6
         btn6.addActionListener(e -> {
             actualizarTxtResultado(SEIS);
         });
-        //Configuro el boton7
+        // Configuro el boton7
         btn7.addActionListener(e -> {
             actualizarTxtResultado(SIETE);
         });
-        //Configuro el boton8
+        // Configuro el boton8
         btn8.addActionListener(e -> {
             actualizarTxtResultado(OCHO);
         });
-        //Configuro el boton9
+        // Configuro el boton9
         btn9.addActionListener(e -> {
             actualizarTxtResultado(NUEVE);
         });
@@ -129,9 +129,9 @@ public class Calculadora extends JFrame {
         setBotonOperacion(btnDividir);
         setBotonOperacion(btnPotencia);
         btnRaiz.addActionListener(e -> {
-            calcularRaiz();//Llamo al método que me permite hacer raices cuadradas
+            calcularRaiz();// Llamo al método que me permite hacer raices cuadradas
         });
-        //Configuro el boton de cambio de signo
+        // Configuro el boton de cambio de signo
         btnMasMenos.addActionListener(e -> {
             if (!txtResultado.getText().isEmpty() && !Objects.equals(txtResultado.getText(), "0")){
                 double num = Double.parseDouble(txtResultado.getText());
@@ -143,9 +143,9 @@ public class Calculadora extends JFrame {
                 }
             }
         });
-        //Configuro el boton de igualdad
+        // Configuro el boton de igualdad
         btnIgual.addActionListener(e -> {
-            //Compruebo que txtResultado no esté vacío
+            // Compruebo que txtResultado no esté vacío
             if (txtResultado.getText().isEmpty()){
                 return;
             }
@@ -154,27 +154,27 @@ public class Calculadora extends JFrame {
                 return;
             }
             valor2 = Double.parseDouble(txtResultado.getText()); // Declaro el segundo operando
-            if (valor2 == 0 && operador=='÷') {//En caso de que el segundo valor sea 0 y el operador de division
-                txtResultado.setText(ERROR_DIVISION_CERO);//Se imprime por pantalla el error
-                existenErrores=true;//La variable de control de errores pasa a true
-                BotonManager.desactivarBotonesTodos(this);//Se desactivan los botones
-                btnC.setEnabled(false);//Aseguramos la desactivación del boton C
+            if (valor2 == 0 && operador=='÷') {// En caso de que el segundo valor sea 0 y el operador de division
+                txtResultado.setText(ERROR_DIVISION_CERO);// Se imprime por pantalla el error
+                existenErrores=true;// La variable de control de errores pasa a true
+                BotonManager.desactivarBotonesTodos(this);// Se desactivan los botones
+                btnC.setEnabled(false);// Aseguramos la desactivación del boton C
                 return;
             }else{
-                realizarOperacion(valor1, valor2, operador);//Realizamos la operación
+                realizarOperacion(valor1, valor2, operador);// Realizamos la operación
                 operador = '\0'; // Reiniciamos el operador
                 if (!existenErrores){
                     // Activamos los botones de operación en caso de que no haya errores
                     BotonManager.activarBotonOperacion(this);
                 }
-                conversorDouble();//Convertimos el resultado a enteros en caso de que los decimales sean "0"
+                conversorDouble();// Convertimos el resultado a enteros en caso de que los decimales sean "0"
                 valor1 = resultado;
                 calculoRealizado = true;
                 btnC.setEnabled(true);
             }
             btnC.setEnabled(false);
         });
-        //Configuro el botonAC que borra todo en pantalla
+        // Configuro el botonAC que borra todo en pantalla
         btnAC.addActionListener(e -> {
             valor1 = 0;
             valor2 =0;
@@ -185,7 +185,7 @@ public class Calculadora extends JFrame {
             activarBotonesTodos(this);
             reiniciarPantalla();
         });
-        //Configuro el botonC, que borra el último número en pantalla
+        // Configuro el botonC, que borra el último número en pantalla
         btnC.addActionListener(e -> {
             String resultado = null;
             if (!txtResultado.getText().isEmpty()) {
@@ -193,11 +193,11 @@ public class Calculadora extends JFrame {
                 strB.deleteCharAt(txtResultado.getText().length() - 1);
                 resultado = String.valueOf(strB);
                 txtResultado.setText(resultado);
-            }else{//Si se ha pulsado sobre un operador por error, si se le da al botón C se reactivan los botones
+            }else{// Si se ha pulsado sobre un operador por error, si se le da al botón C se reactivan los botones
                 activarBotonOperacion(this);
             }
         });
-        //Configuro el botonPunto para que funcione correctamente como en cualquier calculadora
+        // Configuro el botonPunto para que funcione correctamente como en cualquier calculadora
         btnPunto.addActionListener(e -> {
             if (calculoRealizado) {
                 txtResultado.setText("0.");
@@ -205,8 +205,8 @@ public class Calculadora extends JFrame {
             } else {
                 String txtResultadoActual = txtResultado.getText();
                 if (txtResultadoActual.isEmpty() || txtResultadoActual.equals("0") || txtResultadoActual.equals("00")) {
-                    txtResultado.setText("0.");//En este caso tras pulsar sobre el boton se escribe "0."
-                } else if (!txtResultadoActual.contains(".")) {//En caso de que no haya un "." lo añade
+                    txtResultado.setText("0.");// En este caso tras pulsar sobre el boton se escribe "0."
+                } else if (!txtResultadoActual.contains(".")) {// En caso de que no haya un "." lo añade
                     String btnPuntoText = txtResultado.getText() + btnPunto.getText();
                     txtResultado.setText(btnPuntoText);
                 }
@@ -214,17 +214,17 @@ public class Calculadora extends JFrame {
             btnPunto.setEnabled(true);
         });
     }
-    //Creo los métodos de la clase Calculadora
+    // Creo los métodos de la clase Calculadora
 
-    //Creo el metodo reiniciarPantalla que hace que el texto sea "0"
+    // Creo el metodo reiniciarPantalla que hace que el texto sea "0"
     private void reiniciarPantalla() {
         txtResultado.setText("0");
     }
-    //Creo el metodo limpiarPantalla que hace que el texto esté vacío
+    // Creo el metodo limpiarPantalla que hace que el texto esté vacío
     private void limpiarPantalla() {
         txtResultado.setText("");
     }
-    //Creo el método actualizarTxtResultado para actualizar la variable txtResultado
+    // Creo el método actualizarTxtResultado para actualizar la variable txtResultado
     private void actualizarTxtResultado(String num) {
         if (txtResultado.getText().equals("0") || calculoRealizado) {
             if (num.equals(".")) {
@@ -251,18 +251,18 @@ public class Calculadora extends JFrame {
     private void setBotonOperacion(JButton boton) {
         boton.addActionListener(e -> {
             String btnTexto = boton.getText();
-            getOperador(btnTexto);//Le añado el operador correspondiente
-            if (!existenErrores){ //En caso de que no existan errores actúa con normalidad
+            getOperador(btnTexto);// Le añado el operador correspondiente
+            if (!existenErrores){ // En caso de que no existan errores actúa con normalidad
                 activarBotonOperacion(this);
             }
             btnC.setEnabled(true);
-            if (txtResultado.getText().equals(ERROR_DIVISION_CERO)) {//En caso contrario imprime el error por pantalla
-                desactivarBotonOperacion(this);//Desactiva todos los botones
-                btnC.setEnabled(false);//Aseguro que el btnC esté inactivo
+            if (txtResultado.getText().equals(ERROR_DIVISION_CERO)) {// En caso contrario imprime el error por pantalla
+                desactivarBotonOperacion(this);// Desactiva todos los botones
+                btnC.setEnabled(false);// Me aseguro de que el btnC esté inactivo
             }
         });
     }
-    //Configuro el botn getOperador, que toma el texto de los botones como argumento
+    // Configuro el botn getOperador, que toma el texto de los botones como argumento
     private void getOperador(String btnTexto) {
         operador = btnTexto.charAt(0);
         if (!txtResultado.getText().equals(ERROR_DIVISION_CERO) &&
@@ -277,7 +277,7 @@ public class Calculadora extends JFrame {
         }
         btnC.setEnabled(false);
     }
-    //Configuro el metodo que realiza todas las operaciones, a excepcion de la raiz cuadrada
+    // Configuro el metodo que realiza todas las operaciones, a excepcion de la raiz cuadrada
     private void realizarOperacion(double valor1, double valor2, char operador) {
         btnC.setEnabled(false);
         switch (operador) {
@@ -305,18 +305,18 @@ public class Calculadora extends JFrame {
         // Me aseguro de que devuelva números enteros en caso de devolver un número terminado en ".0"
         conversorDouble();
     }
-    //Creo el método para poder calcular la raiz cuadrada de un número
+    // Creo el método para poder calcular la raiz cuadrada de un número
     private void calcularRaiz() {
         String txtResultadoActual = txtResultado.getText();
         if (!txtResultadoActual.isEmpty()) {
             double numero = Double.parseDouble(txtResultadoActual);
             double resultado = Math.sqrt(numero);
-            if (txtResultadoActual.contains("-")){//En caso de que el numero sea negativo
-                txtResultado.setText(ERROR_RAIZ);//Se imprime el mensaje de error por pantalla
-                existenErrores=true;//Activo la variable de control de errores
-                btnC.setEnabled(false);//Me aseguro de que btnC no se vuelve a activar
+            if (txtResultadoActual.contains("-")){// En caso de que el numero sea negativo
+                txtResultado.setText(ERROR_RAIZ);// Se imprime el mensaje de error por pantalla
+                existenErrores=true;// Activo la variable de control de errores
+                btnC.setEnabled(false);// Me aseguro de que btnC no se vuelve a activar
                 desactivarBotonesTodos(this);
-            }else{//En cualquier otro caso hace las raices cuadradas con normalidad
+            }else{// En cualquier otro caso hace las raices cuadradas con normalidad
                 // Comprueba a ver si el resultado es un número entero
                 if (resultado == (int) resultado) {
                     txtResultado.setText(Integer.toString((int) resultado));
@@ -334,8 +334,8 @@ public class Calculadora extends JFrame {
             txtResultado.setText(Double.toString(resultado));
         }
     }
-    //Creo los métodos para mostrar la ventana por pantalla
-    //Configuro el método configurarVentana, que configura con las especificaciones de la misma
+    // Creo los métodos para mostrar la ventana por pantalla
+    // Configuro el método configurarVentana, que configura con las especificaciones de la misma
     private void configurarVentana() {
         this.setContentPane(Panel1);
         //this.pack();
@@ -345,7 +345,7 @@ public class Calculadora extends JFrame {
         setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
-    //Configuro el método mostrar para que se muestre en pantalla
+    // Configuro el método mostrar para que se muestre en pantalla
     public void mostrar() {
         this.setVisible(true);
     }
