@@ -92,8 +92,6 @@ public class Calculadora extends JFrame {
                 actualizarTxtResultado("00");
             } else if (txtResultadoActual.isEmpty() && txtResultadoActual.equals("00")){
                 reiniciarPantalla();
-            } {
-
             }
         });
         btn1.addActionListener(e -> {
