@@ -2,7 +2,7 @@ package org.example.ui;
 
 public class Constantes {
     public static final String ERROR_DIVISION_CERO ="No se puede dividir por 0";
-    public static final String ERROR_RAIZ ="No se puede dividir por 0";
+    public static final String ERROR_RAIZ ="Imposible raiz negativa";
     public static final String CERO = "0";
     public static final String UNO = "1";
     public static final String DOS = "2";

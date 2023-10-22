@@ -36,11 +36,6 @@ public class Calculadora extends JFrame {
     private double valor2 = 0.0;
     private double resultado = 0.0;
     private char operador;
-
-
-
-    private final String txtErrorDiv0 ="No se puede dividir por 0";
-    private final String txtErrorRaizNega ="Entrada no válida";
     private boolean existenErrores;
     private boolean calculoRealizado = false;
 
@@ -156,7 +151,7 @@ public class Calculadora extends JFrame {
             }
             valor2 = Double.parseDouble(txtResultado.getText()); // Declaro el segundo operando
             if (valor2 == 0 && operador=='÷') {
-                txtResultado.setText("No se puede dividir por 0");
+                txtResultado.setText(ERROR_DIVISION_CERO);
                 existenErrores=true;
                 BotonManager.desactivarBotonesTodos(this);
                 btnC.setEnabled(false);
@@ -223,7 +218,7 @@ public class Calculadora extends JFrame {
             double numero = Double.parseDouble(txtResultadoActual);
             double resultado = Math.sqrt(numero);
             if (txtResultadoActual.contains("-")){
-                txtResultado.setText("Entrada no válida");
+                txtResultado.setText(ERROR_RAIZ);
                 existenErrores=true;
                 btnC.setEnabled(false);//Me aseguro de que btnC no se vuelve a activar
                 desactivarBotonesTodos(this);
@@ -241,21 +236,6 @@ public class Calculadora extends JFrame {
 
 
     // Métodos
-    // Consigo el operador cuando le doy al botón de operación
-    private void getOperador(String btnTexto) {
-        operador = btnTexto.charAt(0);
-        if (!txtResultado.getText().equals("No se puede dividir por 0") &&
-                (!txtResultado.getText().equals("Entrada no válida"))) {
-            if (txtResultado.getText().isEmpty()) {
-                valor1 = 0.0;
-            } else {
-                valor1 = Double.parseDouble(txtResultado.getText());
-            }
-            limpiarPantalla();
-            desactivarBotonOperacion(this);
-        }
-        btnC.setEnabled(false);
-    }
 
     private void reiniciarPantalla() {
         txtResultado.setText("0");
@@ -263,25 +243,6 @@ public class Calculadora extends JFrame {
     private void limpiarPantalla() {
         txtResultado.setText("");
     }
-
-    // Configuro los botones operacionales
-
-    private void setBotonOperacion(JButton boton) {
-        boton.addActionListener(e -> {
-            String btnTexto = boton.getText();
-            getOperador(btnTexto);
-            if (!existenErrores) {
-                activarBotonOperacion(this);
-            }
-            btnC.setEnabled(true);
-            if (txtResultado.getText().equals("No se puede dividir por 0")) {
-                btnC.setEnabled(false);
-                desactivarBotonOperacion(this);
-            }
-        });
-    }
-    // Creo una función para actualizar txtResultado en caso de que se introduzca un número tras el 0 predeterminado,
-    // en caso de que se haya hecho raiz de un número negativo o si se divide por 0
 
     private void actualizarTxtResultado(String num) {
         if (txtResultado.getText().equals("0") || calculoRealizado) {
@@ -305,6 +266,39 @@ public class Calculadora extends JFrame {
             btnRaiz.setEnabled(false);
         }
     }
+
+    // Configuro los botones operacionales
+    private void setBotonOperacion(JButton boton) {
+        boton.addActionListener(e -> {
+            String btnTexto = boton.getText();
+            getOperador(btnTexto);
+            if (!existenErrores) {
+                activarBotonOperacion(this);
+            }
+            btnC.setEnabled(true);
+            if (txtResultado.getText().equals(ERROR_DIVISION_CERO)) {
+                btnC.setEnabled(false);
+                desactivarBotonOperacion(this);
+            }
+        });
+    }
+    // Consigo el operador cuando le doy al botón de operación
+
+    private void getOperador(String btnTexto) {
+        operador = btnTexto.charAt(0);
+        if (!txtResultado.getText().equals(ERROR_DIVISION_CERO) &&
+                (!txtResultado.getText().equals(ERROR_RAIZ))) {
+            if (txtResultado.getText().isEmpty()) {
+                valor1 = 0.0;
+            } else {
+                valor1 = Double.parseDouble(txtResultado.getText());
+            }
+            limpiarPantalla();
+            desactivarBotonOperacion(this);
+        }
+        btnC.setEnabled(false);
+    }
+    // Creo una función para actualizar txtResultado en caso de que se introduzca un número tras el 0 predeterminado,
 
     // Hago un método para que el btnIgual no esté tan cargado
     private void realizarOperacion(double valor1, double valor2, char operador) {
