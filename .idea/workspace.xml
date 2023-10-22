@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Sigo haciendo metodos y optimizando codigo, sigo arreglando otros fallos menores FALTA EL JAVADOC">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/Operaciones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/BotonManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/BotonManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ui/Calculadora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ui/Calculadora.java" afterDir="false" />
-    </list>
+    <list default="true" id="4ea0cb8d-8f22-4b11-a145-e3b4ae676aec" name="Changes" comment="Sigo comentando y optimizando codigo, sigo arreglando otros fallos menores FALTA EL JAVADOC" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,7 +93,7 @@
       <workItem from="1697978255578" duration="1114000" />
       <workItem from="1697984880639" duration="1821000" />
       <workItem from="1697986830312" duration="41000" />
-      <workItem from="1697987570069" duration="1233000" />
+      <workItem from="1697987570069" duration="1351000" />
     </task>
     <task id="LOCAL-00001" summary="Están hechos los botones numéricos, faltan los operandos">
       <option name="closed" value="true" />
@@ -428,7 +423,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697984893753</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Sigo comentando metodos y optimizando codigo, sigo arreglando otros fallos menores FALTA EL JAVADOC">
+      <option name="closed" value="true" />
+      <created>1697988889287</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1697988889287</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -446,8 +449,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Ha dado errores a la hora de elevar" />
-    <MESSAGE value="Solucionado el problema de las potencias." />
     <MESSAGE value="Calculadora terminada." />
     <MESSAGE value="Hacer el javadoc&#10; He conseguido solucionar los erores con las operaciones haciendo enable en setBtnOperacion &#10;Tengo que hacer que se tenga que seleccionar previamente un numero antes de poner el operador potencia&#10;&#10;PetA cuando operas despues del texto" />
     <MESSAGE value="Hacer el javadoc&#10; He conseguido solucionar los erores con las operaciones haciendo enable en setBtnOperacion &#10;&#10;&#10;PetA cuando operas despues del texto" />
@@ -471,7 +472,9 @@
     <MESSAGE value="Refactorizando.&#10;Arregldps los botones 0 y 00.&#10;Ha vuelto a dividir por 0&#10;Voy a hacer una clase Constantes.&#10;Puede que haga una clase Operaciones desde la que hacerlas.&#10;Ya vuelve a funcionar btnC en csao de raizNegativa&#10;&#10;Unificar formato de los 2 tipos de errores&#10;Hacer raiz n de un numero en lugar de la raiz cuadrada&#10;Sigohaciendo metodos y optimizando codigo" />
     <MESSAGE value="Sigo haciendo metodos y optimizando codigo,he arreglado otros fallos menores FALTA EL JAVADOC" />
     <MESSAGE value="Sigo haciendo metodos y optimizando codigo, sigo arreglando otros fallos menores FALTA EL JAVADOC" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sigo haciendo metodos y optimizando codigo, sigo arreglando otros fallos menores FALTA EL JAVADOC" />
+    <MESSAGE value="Sigo comentando metodos y optimizando codigo, sigo arreglando otros fallos menores FALTA EL JAVADOC" />
+    <MESSAGE value="Sigo comentando y optimizando codigo, sigo arreglando otros fallos menores FALTA EL JAVADOC" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sigo comentando y optimizando codigo, sigo arreglando otros fallos menores FALTA EL JAVADOC" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
