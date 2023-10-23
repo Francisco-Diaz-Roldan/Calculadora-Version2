@@ -226,7 +226,6 @@ import static org.example.ui.Constantes.*;
 
         // Configuro los botones operacionales
         setBotonOperacion(btnSumar);
-
         setBotonOperacion(btnRestar);
         setBotonOperacion(btnMultiplicar);
         setBotonOperacion(btnDividir);
@@ -382,22 +381,28 @@ import static org.example.ui.Constantes.*;
      * @param btnTexto El texto del botón que contiene el operador.
      */
     private void getOperador(String btnTexto) {
-        operador = btnTexto.charAt(0);
-        if (!txtResultado.getText().equals(ERROR_DIVISION_CERO) &&
-                (!txtResultado.getText().equals(ERROR_RAIZ))) {
-            if (txtResultado.getText().isEmpty()) {
-                valor1 = 0.0;
-            } else {
+        char ultimoOperador = '\0';// Char para almacenar el último operador seleccionado.
+        if (!txtResultado.getText().isEmpty()) {
+            if (operador == '\0') {
                 valor1 = Double.parseDouble(txtResultado.getText());
+            } else {
+                valor2 = Double.parseDouble(txtResultado.getText());
+                realizarOperacion(valor1, valor2, operador);
+                valor1 = resultado;
+                valor2 = 0.0;
             }
+            operador = btnTexto.charAt(0);
             limpiarPantalla();
             desactivarBotonOperacion(this);
+            btnC.setEnabled(false);
+            ultimoOperador = operador;
+        } else if (operador != '\0') {
+            operador = btnTexto.charAt(0);
+            ultimoOperador = operador;
         }
-        btnC.setEnabled(false);
     }
-    // Configuro el metodo que realiza todas las operaciones, a excepcion de la raiz cuadrada
     /**
-     * Realiza  todas las operaciones, a excepcion de la raiz cuadrada, utilizando el operador y los valores actuales.
+     * Realiza todas las operaciones, a excepcion de la raiz cuadrada, utilizando el operador y los valores actuales.
      *
      * @param valor1    El primer valor numérico de la operación.
      * @param valor2    El segundo valor numérico de la operación.
@@ -422,11 +427,9 @@ import static org.example.ui.Constantes.*;
                 resultado = Math.pow(valor1, valor2);
                 break;
         }
-
         // Restablezco el "valor1" y muestro el resultado por pantalla
         valor1 = resultado; //Guardo este valor para futuribles operaciones
         txtResultado.setText(Double.toString(resultado));
-
         // Me aseguro de que devuelva números enteros en caso de devolver un número terminado en ".0"
         conversorDouble();
     }
